@@ -1,6 +1,6 @@
 
 
--- | <p/>
+-- | <p>The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub. </p>
 module AWS.MigrationHub where
 
 import Prelude
@@ -20,90 +20,120 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "MigrationHub" :: String
-
 
 -- | <p>Associates a created artifact of an AWS cloud resource, the target receiving the migration, with the migration task performed by a migration tool. This API has the following traits:</p> <ul> <li> <p>Migration tools can call the <code>AssociateCreatedArtifact</code> operation to indicate which AWS artifact is associated with a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or DMS endpoint, etc.</p> </li> </ul>
 associateCreatedArtifact :: forall eff. AssociateCreatedArtifactRequest -> Aff (exception :: EXCEPTION | eff) AssociateCreatedArtifactResult
-associateCreatedArtifact = Request.request serviceName "associateCreatedArtifact" 
+associateCreatedArtifact = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "associateCreatedArtifact"
 
 
 -- | <p>Associates a discovered resource ID from Application Discovery Service (ADS) with a migration task.</p>
 associateDiscoveredResource :: forall eff. AssociateDiscoveredResourceRequest -> Aff (exception :: EXCEPTION | eff) AssociateDiscoveredResourceResult
-associateDiscoveredResource = Request.request serviceName "associateDiscoveredResource" 
+associateDiscoveredResource = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "associateDiscoveredResource"
 
 
 -- | <p>Creates a progress update stream which is an AWS resource used for access control as well as a namespace for migration task names that is implicitly linked to your AWS account. It must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.</p>
 createProgressUpdateStream :: forall eff. CreateProgressUpdateStreamRequest -> Aff (exception :: EXCEPTION | eff) CreateProgressUpdateStreamResult
-createProgressUpdateStream = Request.request serviceName "createProgressUpdateStream" 
+createProgressUpdateStream = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "createProgressUpdateStream"
 
 
--- | <p>Deletes a progress update stream, including all of its tasks, which was previously created as an AWS resource used for access control. This API has the following traits:</p> <ul> <li> <p>The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream name (same as a <code>CreateProgressUpdateStream</code> call).</p> </li> <li> <p>The call will return, and a background process will asynchronously be doing the actual delete of the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li> <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs realted to the tasks belonging to the stream will throw "InvalidInputException" if the stream of the same name is in the process of being deleted.</p> </li> <li> <p>Once the stream and all of its resources are deleted, <code>CreateProgressUpdateStream</code> for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).</p> </li> </ul>
+-- | <p>Deletes a progress update stream, including all of its tasks, which was previously created as an AWS resource used for access control. This API has the following traits:</p> <ul> <li> <p>The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream name (same as a <code>CreateProgressUpdateStream</code> call).</p> </li> <li> <p>The call will return, and a background process will asynchronously delete the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li> <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs realted to the tasks belonging to the stream will throw "InvalidInputException" if the stream of the same name is in the process of being deleted.</p> </li> <li> <p>Once the stream and all of its resources are deleted, <code>CreateProgressUpdateStream</code> for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).</p> </li> </ul>
 deleteProgressUpdateStream :: forall eff. DeleteProgressUpdateStreamRequest -> Aff (exception :: EXCEPTION | eff) DeleteProgressUpdateStreamResult
-deleteProgressUpdateStream = Request.request serviceName "deleteProgressUpdateStream" 
+deleteProgressUpdateStream = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "deleteProgressUpdateStream"
 
 
 -- | <p>Gets the migration status of an application.</p>
 describeApplicationState :: forall eff. DescribeApplicationStateRequest -> Aff (exception :: EXCEPTION | eff) DescribeApplicationStateResult
-describeApplicationState = Request.request serviceName "describeApplicationState" 
+describeApplicationState = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "describeApplicationState"
 
 
 -- | <p>Retrieves a list of all attributes associated with a specific migration task.</p>
 describeMigrationTask :: forall eff. DescribeMigrationTaskRequest -> Aff (exception :: EXCEPTION | eff) DescribeMigrationTaskResult
-describeMigrationTask = Request.request serviceName "describeMigrationTask" 
+describeMigrationTask = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "describeMigrationTask"
 
 
 -- | <p>Disassociates a created artifact of an AWS resource with a migration task performed by a migration tool that was previously associated. This API has the following traits:</p> <ul> <li> <p>A migration user can call the <code>DisassociateCreatedArtifacts</code> operation to disassociate a created AWS Artifact from a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or RDS instance, etc.</p> </li> </ul>
 disassociateCreatedArtifact :: forall eff. DisassociateCreatedArtifactRequest -> Aff (exception :: EXCEPTION | eff) DisassociateCreatedArtifactResult
-disassociateCreatedArtifact = Request.request serviceName "disassociateCreatedArtifact" 
+disassociateCreatedArtifact = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "disassociateCreatedArtifact"
 
 
 -- | <p>Disassociate an Application Discovery Service (ADS) discovered resource from a migration task.</p>
 disassociateDiscoveredResource :: forall eff. DisassociateDiscoveredResourceRequest -> Aff (exception :: EXCEPTION | eff) DisassociateDiscoveredResourceResult
-disassociateDiscoveredResource = Request.request serviceName "disassociateDiscoveredResource" 
+disassociateDiscoveredResource = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "disassociateDiscoveredResource"
 
 
 -- | <p>Registers a new migration task which represents a server, database, etc., being migrated to AWS by a migration tool.</p> <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as the migration tool must first register the migration task with Migration Hub.</p>
 importMigrationTask :: forall eff. ImportMigrationTaskRequest -> Aff (exception :: EXCEPTION | eff) ImportMigrationTaskResult
-importMigrationTask = Request.request serviceName "importMigrationTask" 
+importMigrationTask = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "importMigrationTask"
 
 
 -- | <p>Lists the created artifacts attached to a given migration task in an update stream. This API has the following traits:</p> <ul> <li> <p>Gets the list of the created artifacts while migration is taking place.</p> </li> <li> <p>Shows the artifacts created by the migration tool that was associated by the <code>AssociateCreatedArtifact</code> API. </p> </li> <li> <p>Lists created artifacts in a paginated interface. </p> </li> </ul>
 listCreatedArtifacts :: forall eff. ListCreatedArtifactsRequest -> Aff (exception :: EXCEPTION | eff) ListCreatedArtifactsResult
-listCreatedArtifacts = Request.request serviceName "listCreatedArtifacts" 
+listCreatedArtifacts = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "listCreatedArtifacts"
 
 
 -- | <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
 listDiscoveredResources :: forall eff. ListDiscoveredResourcesRequest -> Aff (exception :: EXCEPTION | eff) ListDiscoveredResourcesResult
-listDiscoveredResources = Request.request serviceName "listDiscoveredResources" 
+listDiscoveredResources = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "listDiscoveredResources"
 
 
 -- | <p>Lists all, or filtered by resource name, migration tasks associated with the user account making this call. This API has the following traits:</p> <ul> <li> <p>Can show a summary list of the most recent migration tasks.</p> </li> <li> <p>Can show a summary list of migration tasks associated with a given discovered resource.</p> </li> <li> <p>Lists migration tasks in a paginated interface.</p> </li> </ul>
 listMigrationTasks :: forall eff. ListMigrationTasksRequest -> Aff (exception :: EXCEPTION | eff) ListMigrationTasksResult
-listMigrationTasks = Request.request serviceName "listMigrationTasks" 
+listMigrationTasks = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "listMigrationTasks"
 
 
 -- | <p>Lists progress update streams associated with the user account making this call.</p>
 listProgressUpdateStreams :: forall eff. ListProgressUpdateStreamsRequest -> Aff (exception :: EXCEPTION | eff) ListProgressUpdateStreamsResult
-listProgressUpdateStreams = Request.request serviceName "listProgressUpdateStreams" 
+listProgressUpdateStreams = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "listProgressUpdateStreams"
 
 
 -- | <p>Sets the migration state of an application. For a given application identified by the value passed to <code>ApplicationId</code>, its status is set or updated by passing one of three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS | COMPLETED</code>.</p>
 notifyApplicationState :: forall eff. NotifyApplicationStateRequest -> Aff (exception :: EXCEPTION | eff) NotifyApplicationStateResult
-notifyApplicationState = Request.request serviceName "notifyApplicationState" 
+notifyApplicationState = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "notifyApplicationState"
 
 
 -- | <p>Notifies Migration Hub of the current status, progress, or other detail regarding a migration task. This API has the following traits:</p> <ul> <li> <p>Migration tools will call the <code>NotifyMigrationTaskState</code> API to share the latest progress and status.</p> </li> <li> <p> <code>MigrationTaskName</code> is used for addressing updates to the correct target.</p> </li> <li> <p> <code>ProgressUpdateStream</code> is used for access control and to provide a namespace for each migration tool.</p> </li> </ul>
 notifyMigrationTaskState :: forall eff. NotifyMigrationTaskStateRequest -> Aff (exception :: EXCEPTION | eff) NotifyMigrationTaskStateResult
-notifyMigrationTaskState = Request.request serviceName "notifyMigrationTaskState" 
+notifyMigrationTaskState = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "notifyMigrationTaskState"
 
 
--- | <p>Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service (ADS)'s repository. This association occurs asynchronously after <code>PutResourceAttributes</code> returns.</p> <important> <p>Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to <i>add</i> an IP address, it will then be required to call it with <i>both</i> the IP and MAC addresses to prevent overiding the MAC address.</p> </important> <note> <p>Because this is an asynchronous call, it will always return 200, whether an association occurs or not. To confirm if an association was found based on the provided details, call <code>ListAssociatedResource</code>.</p> </note>
+-- | <p>Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service (ADS)'s repository. This association occurs asynchronously after <code>PutResourceAttributes</code> returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to <i>add</i> an IP address, it will then be required to call it with <i>both</i> the IP and MAC addresses to prevent overiding the MAC address.</p> </li> <li> <p>Note the instructions regarding the special use case of the <code>ResourceAttributeList</code> parameter when specifying any "VM" related value.</p> </li> </ul> </important> <note> <p>Because this is an asynchronous call, it will always return 200, whether an association occurs or not. To confirm if an association was found based on the provided details, call <code>ListDiscoveredResources</code>.</p> </note>
 putResourceAttributes :: forall eff. PutResourceAttributesRequest -> Aff (exception :: EXCEPTION | eff) PutResourceAttributesResult
-putResourceAttributes = Request.request serviceName "putResourceAttributes" 
+putResourceAttributes = Request.request service method  where
+    service = Request.ServiceName "MigrationHub"
+    method = Request.MethodName "putResourceAttributes"
 
 
--- | <p>Exception raised when the account making the call is not whitelisted or there are other authentication errors.</p>
+-- | <p>You do not have sufficient access to perform this action.</p>
 newtype AccessDeniedException = AccessDeniedException 
   { "Message" :: NullOrUndefined.NullOrUndefined (ErrorMessage)
   }
@@ -1139,7 +1169,7 @@ instance encodeNotifyMigrationTaskStateResult :: Encode NotifyMigrationTaskState
 
 
 
--- | <p>Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>ADSCaller</code> role is missing or not configured correctly.</p>
+-- | <p>Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
 newtype PolicyErrorException = PolicyErrorException 
   { "Message" :: NullOrUndefined.NullOrUndefined (ErrorMessage)
   }
@@ -1261,7 +1291,7 @@ instance encodePutResourceAttributesResult :: Encode PutResourceAttributesResult
 
 
 
--- | <p>Attribute associated with a resource.</p>
+-- | <p>Attribute associated with a resource.</p> <p>Note the corresponding format required per type listed below:</p> <dl> <dt>IPV4</dt> <dd> <p> <code>x.x.x.x</code> </p> <p> <i>where x is an integer in the range [0,255]</i> </p> </dd> <dt>IPV6</dt> <dd> <p> <code>y : y : y : y : y : y : y : y</code> </p> <p> <i>where y is a hexadecimal between 0 and FFFF. [0, FFFF]</i> </p> </dd> <dt>MAC_ADDRESS</dt> <dd> <p> <code>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</code> </p> </dd> <dt>FQDN</dt> <dd> <p> <code>^[^&lt;&gt;{}\\\\/?,=\\p{Cntrl}]{1,256}$</code> </p> </dd> </dl>
 newtype ResourceAttribute = ResourceAttribute 
   { "Type" :: (ResourceAttributeType)
   , "Value" :: (ResourceAttributeValue)
@@ -1358,7 +1388,7 @@ newResourceNotFoundException'  customize = (ResourceNotFoundException <<< custom
 
 
 
--- | <p>Exception raised when the service encounters throttled communication with upstream dependencies or is overloaded with requests.</p>
+-- | <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
 newtype ServiceUnavailableException = ServiceUnavailableException 
   { "Message" :: NullOrUndefined.NullOrUndefined (ErrorMessage)
   }
