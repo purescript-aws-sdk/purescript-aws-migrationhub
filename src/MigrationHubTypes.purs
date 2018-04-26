@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,7 +19,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>You do not have sufficient access to perform this action.</p>
 newtype AccessDeniedException = AccessDeniedException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeAccessDeniedException :: Newtype AccessDeniedException _
 derive instance repGenericAccessDeniedException :: Generic AccessDeniedException _
@@ -30,12 +29,12 @@ instance encodeAccessDeniedException :: Encode AccessDeniedException where encod
 
 -- | Constructs AccessDeniedException from required parameters
 newAccessDeniedException :: AccessDeniedException
-newAccessDeniedException  = AccessDeniedException { "Message": (NullOrUndefined Nothing) }
+newAccessDeniedException  = AccessDeniedException { "Message": Nothing }
 
 -- | Constructs AccessDeniedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAccessDeniedException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> AccessDeniedException
-newAccessDeniedException'  customize = (AccessDeniedException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newAccessDeniedException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> AccessDeniedException
+newAccessDeniedException'  customize = (AccessDeniedException <<< customize) { "Message": Nothing }
 
 
 
@@ -61,7 +60,7 @@ newtype AssociateCreatedArtifactRequest = AssociateCreatedArtifactRequest
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
   , "CreatedArtifact" :: (CreatedArtifact)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeAssociateCreatedArtifactRequest :: Newtype AssociateCreatedArtifactRequest _
 derive instance repGenericAssociateCreatedArtifactRequest :: Generic AssociateCreatedArtifactRequest _
@@ -71,12 +70,12 @@ instance encodeAssociateCreatedArtifactRequest :: Encode AssociateCreatedArtifac
 
 -- | Constructs AssociateCreatedArtifactRequest from required parameters
 newAssociateCreatedArtifactRequest :: CreatedArtifact -> MigrationTaskName -> ProgressUpdateStream -> AssociateCreatedArtifactRequest
-newAssociateCreatedArtifactRequest _CreatedArtifact _MigrationTaskName _ProgressUpdateStream = AssociateCreatedArtifactRequest { "CreatedArtifact": _CreatedArtifact, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newAssociateCreatedArtifactRequest _CreatedArtifact _MigrationTaskName _ProgressUpdateStream = AssociateCreatedArtifactRequest { "CreatedArtifact": _CreatedArtifact, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 -- | Constructs AssociateCreatedArtifactRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateCreatedArtifactRequest' :: CreatedArtifact -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifact" :: (CreatedArtifact) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifact" :: (CreatedArtifact) , "DryRun" :: NullOrUndefined (DryRun) } ) -> AssociateCreatedArtifactRequest
-newAssociateCreatedArtifactRequest' _CreatedArtifact _MigrationTaskName _ProgressUpdateStream customize = (AssociateCreatedArtifactRequest <<< customize) { "CreatedArtifact": _CreatedArtifact, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newAssociateCreatedArtifactRequest' :: CreatedArtifact -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifact" :: (CreatedArtifact) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifact" :: (CreatedArtifact) , "DryRun" :: Maybe (DryRun) } ) -> AssociateCreatedArtifactRequest
+newAssociateCreatedArtifactRequest' _CreatedArtifact _MigrationTaskName _ProgressUpdateStream customize = (AssociateCreatedArtifactRequest <<< customize) { "CreatedArtifact": _CreatedArtifact, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 
 
@@ -93,7 +92,7 @@ newtype AssociateDiscoveredResourceRequest = AssociateDiscoveredResourceRequest
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
   , "DiscoveredResource" :: (DiscoveredResource)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeAssociateDiscoveredResourceRequest :: Newtype AssociateDiscoveredResourceRequest _
 derive instance repGenericAssociateDiscoveredResourceRequest :: Generic AssociateDiscoveredResourceRequest _
@@ -103,12 +102,12 @@ instance encodeAssociateDiscoveredResourceRequest :: Encode AssociateDiscoveredR
 
 -- | Constructs AssociateDiscoveredResourceRequest from required parameters
 newAssociateDiscoveredResourceRequest :: DiscoveredResource -> MigrationTaskName -> ProgressUpdateStream -> AssociateDiscoveredResourceRequest
-newAssociateDiscoveredResourceRequest _DiscoveredResource _MigrationTaskName _ProgressUpdateStream = AssociateDiscoveredResourceRequest { "DiscoveredResource": _DiscoveredResource, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newAssociateDiscoveredResourceRequest _DiscoveredResource _MigrationTaskName _ProgressUpdateStream = AssociateDiscoveredResourceRequest { "DiscoveredResource": _DiscoveredResource, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 -- | Constructs AssociateDiscoveredResourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateDiscoveredResourceRequest' :: DiscoveredResource -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DiscoveredResource" :: (DiscoveredResource) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DiscoveredResource" :: (DiscoveredResource) , "DryRun" :: NullOrUndefined (DryRun) } ) -> AssociateDiscoveredResourceRequest
-newAssociateDiscoveredResourceRequest' _DiscoveredResource _MigrationTaskName _ProgressUpdateStream customize = (AssociateDiscoveredResourceRequest <<< customize) { "DiscoveredResource": _DiscoveredResource, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newAssociateDiscoveredResourceRequest' :: DiscoveredResource -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DiscoveredResource" :: (DiscoveredResource) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DiscoveredResource" :: (DiscoveredResource) , "DryRun" :: Maybe (DryRun) } ) -> AssociateDiscoveredResourceRequest
+newAssociateDiscoveredResourceRequest' _DiscoveredResource _MigrationTaskName _ProgressUpdateStream customize = (AssociateDiscoveredResourceRequest <<< customize) { "DiscoveredResource": _DiscoveredResource, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 
 
@@ -132,7 +131,7 @@ instance encodeConfigurationId :: Encode ConfigurationId where encode = genericE
 
 newtype CreateProgressUpdateStreamRequest = CreateProgressUpdateStreamRequest 
   { "ProgressUpdateStreamName" :: (ProgressUpdateStream)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeCreateProgressUpdateStreamRequest :: Newtype CreateProgressUpdateStreamRequest _
 derive instance repGenericCreateProgressUpdateStreamRequest :: Generic CreateProgressUpdateStreamRequest _
@@ -142,12 +141,12 @@ instance encodeCreateProgressUpdateStreamRequest :: Encode CreateProgressUpdateS
 
 -- | Constructs CreateProgressUpdateStreamRequest from required parameters
 newCreateProgressUpdateStreamRequest :: ProgressUpdateStream -> CreateProgressUpdateStreamRequest
-newCreateProgressUpdateStreamRequest _ProgressUpdateStreamName = CreateProgressUpdateStreamRequest { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": (NullOrUndefined Nothing) }
+newCreateProgressUpdateStreamRequest _ProgressUpdateStreamName = CreateProgressUpdateStreamRequest { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": Nothing }
 
 -- | Constructs CreateProgressUpdateStreamRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateProgressUpdateStreamRequest' :: ProgressUpdateStream -> ( { "ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: NullOrUndefined (DryRun) } ) -> CreateProgressUpdateStreamRequest
-newCreateProgressUpdateStreamRequest' _ProgressUpdateStreamName customize = (CreateProgressUpdateStreamRequest <<< customize) { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": (NullOrUndefined Nothing) }
+newCreateProgressUpdateStreamRequest' :: ProgressUpdateStream -> ( { "ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: Maybe (DryRun) } ) -> CreateProgressUpdateStreamRequest
+newCreateProgressUpdateStreamRequest' _ProgressUpdateStreamName customize = (CreateProgressUpdateStreamRequest <<< customize) { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": Nothing }
 
 
 
@@ -163,7 +162,7 @@ instance encodeCreateProgressUpdateStreamResult :: Encode CreateProgressUpdateSt
 -- | <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).</p>
 newtype CreatedArtifact = CreatedArtifact 
   { "Name" :: (CreatedArtifactName)
-  , "Description" :: NullOrUndefined (CreatedArtifactDescription)
+  , "Description" :: Maybe (CreatedArtifactDescription)
   }
 derive instance newtypeCreatedArtifact :: Newtype CreatedArtifact _
 derive instance repGenericCreatedArtifact :: Generic CreatedArtifact _
@@ -173,12 +172,12 @@ instance encodeCreatedArtifact :: Encode CreatedArtifact where encode = genericE
 
 -- | Constructs CreatedArtifact from required parameters
 newCreatedArtifact :: CreatedArtifactName -> CreatedArtifact
-newCreatedArtifact _Name = CreatedArtifact { "Name": _Name, "Description": (NullOrUndefined Nothing) }
+newCreatedArtifact _Name = CreatedArtifact { "Name": _Name, "Description": Nothing }
 
 -- | Constructs CreatedArtifact's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatedArtifact' :: CreatedArtifactName -> ( { "Name" :: (CreatedArtifactName) , "Description" :: NullOrUndefined (CreatedArtifactDescription) } -> {"Name" :: (CreatedArtifactName) , "Description" :: NullOrUndefined (CreatedArtifactDescription) } ) -> CreatedArtifact
-newCreatedArtifact' _Name customize = (CreatedArtifact <<< customize) { "Name": _Name, "Description": (NullOrUndefined Nothing) }
+newCreatedArtifact' :: CreatedArtifactName -> ( { "Name" :: (CreatedArtifactName) , "Description" :: Maybe (CreatedArtifactDescription) } -> {"Name" :: (CreatedArtifactName) , "Description" :: Maybe (CreatedArtifactDescription) } ) -> CreatedArtifact
+newCreatedArtifact' _Name customize = (CreatedArtifact <<< customize) { "Name": _Name, "Description": Nothing }
 
 
 
@@ -211,7 +210,7 @@ instance encodeCreatedArtifactName :: Encode CreatedArtifactName where encode = 
 
 newtype DeleteProgressUpdateStreamRequest = DeleteProgressUpdateStreamRequest 
   { "ProgressUpdateStreamName" :: (ProgressUpdateStream)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeDeleteProgressUpdateStreamRequest :: Newtype DeleteProgressUpdateStreamRequest _
 derive instance repGenericDeleteProgressUpdateStreamRequest :: Generic DeleteProgressUpdateStreamRequest _
@@ -221,12 +220,12 @@ instance encodeDeleteProgressUpdateStreamRequest :: Encode DeleteProgressUpdateS
 
 -- | Constructs DeleteProgressUpdateStreamRequest from required parameters
 newDeleteProgressUpdateStreamRequest :: ProgressUpdateStream -> DeleteProgressUpdateStreamRequest
-newDeleteProgressUpdateStreamRequest _ProgressUpdateStreamName = DeleteProgressUpdateStreamRequest { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": (NullOrUndefined Nothing) }
+newDeleteProgressUpdateStreamRequest _ProgressUpdateStreamName = DeleteProgressUpdateStreamRequest { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": Nothing }
 
 -- | Constructs DeleteProgressUpdateStreamRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteProgressUpdateStreamRequest' :: ProgressUpdateStream -> ( { "ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: NullOrUndefined (DryRun) } ) -> DeleteProgressUpdateStreamRequest
-newDeleteProgressUpdateStreamRequest' _ProgressUpdateStreamName customize = (DeleteProgressUpdateStreamRequest <<< customize) { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": (NullOrUndefined Nothing) }
+newDeleteProgressUpdateStreamRequest' :: ProgressUpdateStream -> ( { "ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStreamName" :: (ProgressUpdateStream) , "DryRun" :: Maybe (DryRun) } ) -> DeleteProgressUpdateStreamRequest
+newDeleteProgressUpdateStreamRequest' _ProgressUpdateStreamName customize = (DeleteProgressUpdateStreamRequest <<< customize) { "ProgressUpdateStreamName": _ProgressUpdateStreamName, "DryRun": Nothing }
 
 
 
@@ -260,8 +259,8 @@ newDescribeApplicationStateRequest' _ApplicationId customize = (DescribeApplicat
 
 
 newtype DescribeApplicationStateResult = DescribeApplicationStateResult 
-  { "ApplicationStatus" :: NullOrUndefined (ApplicationStatus)
-  , "LastUpdatedTime" :: NullOrUndefined (UpdateDateTime)
+  { "ApplicationStatus" :: Maybe (ApplicationStatus)
+  , "LastUpdatedTime" :: Maybe (UpdateDateTime)
   }
 derive instance newtypeDescribeApplicationStateResult :: Newtype DescribeApplicationStateResult _
 derive instance repGenericDescribeApplicationStateResult :: Generic DescribeApplicationStateResult _
@@ -271,12 +270,12 @@ instance encodeDescribeApplicationStateResult :: Encode DescribeApplicationState
 
 -- | Constructs DescribeApplicationStateResult from required parameters
 newDescribeApplicationStateResult :: DescribeApplicationStateResult
-newDescribeApplicationStateResult  = DescribeApplicationStateResult { "ApplicationStatus": (NullOrUndefined Nothing), "LastUpdatedTime": (NullOrUndefined Nothing) }
+newDescribeApplicationStateResult  = DescribeApplicationStateResult { "ApplicationStatus": Nothing, "LastUpdatedTime": Nothing }
 
 -- | Constructs DescribeApplicationStateResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeApplicationStateResult' :: ( { "ApplicationStatus" :: NullOrUndefined (ApplicationStatus) , "LastUpdatedTime" :: NullOrUndefined (UpdateDateTime) } -> {"ApplicationStatus" :: NullOrUndefined (ApplicationStatus) , "LastUpdatedTime" :: NullOrUndefined (UpdateDateTime) } ) -> DescribeApplicationStateResult
-newDescribeApplicationStateResult'  customize = (DescribeApplicationStateResult <<< customize) { "ApplicationStatus": (NullOrUndefined Nothing), "LastUpdatedTime": (NullOrUndefined Nothing) }
+newDescribeApplicationStateResult' :: ( { "ApplicationStatus" :: Maybe (ApplicationStatus) , "LastUpdatedTime" :: Maybe (UpdateDateTime) } -> {"ApplicationStatus" :: Maybe (ApplicationStatus) , "LastUpdatedTime" :: Maybe (UpdateDateTime) } ) -> DescribeApplicationStateResult
+newDescribeApplicationStateResult'  customize = (DescribeApplicationStateResult <<< customize) { "ApplicationStatus": Nothing, "LastUpdatedTime": Nothing }
 
 
 
@@ -302,7 +301,7 @@ newDescribeMigrationTaskRequest' _MigrationTaskName _ProgressUpdateStream custom
 
 
 newtype DescribeMigrationTaskResult = DescribeMigrationTaskResult 
-  { "MigrationTask" :: NullOrUndefined (MigrationTask)
+  { "MigrationTask" :: Maybe (MigrationTask)
   }
 derive instance newtypeDescribeMigrationTaskResult :: Newtype DescribeMigrationTaskResult _
 derive instance repGenericDescribeMigrationTaskResult :: Generic DescribeMigrationTaskResult _
@@ -312,12 +311,12 @@ instance encodeDescribeMigrationTaskResult :: Encode DescribeMigrationTaskResult
 
 -- | Constructs DescribeMigrationTaskResult from required parameters
 newDescribeMigrationTaskResult :: DescribeMigrationTaskResult
-newDescribeMigrationTaskResult  = DescribeMigrationTaskResult { "MigrationTask": (NullOrUndefined Nothing) }
+newDescribeMigrationTaskResult  = DescribeMigrationTaskResult { "MigrationTask": Nothing }
 
 -- | Constructs DescribeMigrationTaskResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMigrationTaskResult' :: ( { "MigrationTask" :: NullOrUndefined (MigrationTask) } -> {"MigrationTask" :: NullOrUndefined (MigrationTask) } ) -> DescribeMigrationTaskResult
-newDescribeMigrationTaskResult'  customize = (DescribeMigrationTaskResult <<< customize) { "MigrationTask": (NullOrUndefined Nothing) }
+newDescribeMigrationTaskResult' :: ( { "MigrationTask" :: Maybe (MigrationTask) } -> {"MigrationTask" :: Maybe (MigrationTask) } ) -> DescribeMigrationTaskResult
+newDescribeMigrationTaskResult'  customize = (DescribeMigrationTaskResult <<< customize) { "MigrationTask": Nothing }
 
 
 
@@ -325,7 +324,7 @@ newtype DisassociateCreatedArtifactRequest = DisassociateCreatedArtifactRequest
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
   , "CreatedArtifactName" :: (CreatedArtifactName)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeDisassociateCreatedArtifactRequest :: Newtype DisassociateCreatedArtifactRequest _
 derive instance repGenericDisassociateCreatedArtifactRequest :: Generic DisassociateCreatedArtifactRequest _
@@ -335,12 +334,12 @@ instance encodeDisassociateCreatedArtifactRequest :: Encode DisassociateCreatedA
 
 -- | Constructs DisassociateCreatedArtifactRequest from required parameters
 newDisassociateCreatedArtifactRequest :: CreatedArtifactName -> MigrationTaskName -> ProgressUpdateStream -> DisassociateCreatedArtifactRequest
-newDisassociateCreatedArtifactRequest _CreatedArtifactName _MigrationTaskName _ProgressUpdateStream = DisassociateCreatedArtifactRequest { "CreatedArtifactName": _CreatedArtifactName, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newDisassociateCreatedArtifactRequest _CreatedArtifactName _MigrationTaskName _ProgressUpdateStream = DisassociateCreatedArtifactRequest { "CreatedArtifactName": _CreatedArtifactName, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 -- | Constructs DisassociateCreatedArtifactRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisassociateCreatedArtifactRequest' :: CreatedArtifactName -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifactName" :: (CreatedArtifactName) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifactName" :: (CreatedArtifactName) , "DryRun" :: NullOrUndefined (DryRun) } ) -> DisassociateCreatedArtifactRequest
-newDisassociateCreatedArtifactRequest' _CreatedArtifactName _MigrationTaskName _ProgressUpdateStream customize = (DisassociateCreatedArtifactRequest <<< customize) { "CreatedArtifactName": _CreatedArtifactName, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newDisassociateCreatedArtifactRequest' :: CreatedArtifactName -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifactName" :: (CreatedArtifactName) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "CreatedArtifactName" :: (CreatedArtifactName) , "DryRun" :: Maybe (DryRun) } ) -> DisassociateCreatedArtifactRequest
+newDisassociateCreatedArtifactRequest' _CreatedArtifactName _MigrationTaskName _ProgressUpdateStream customize = (DisassociateCreatedArtifactRequest <<< customize) { "CreatedArtifactName": _CreatedArtifactName, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 
 
@@ -357,7 +356,7 @@ newtype DisassociateDiscoveredResourceRequest = DisassociateDiscoveredResourceRe
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
   , "ConfigurationId" :: (ConfigurationId)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeDisassociateDiscoveredResourceRequest :: Newtype DisassociateDiscoveredResourceRequest _
 derive instance repGenericDisassociateDiscoveredResourceRequest :: Generic DisassociateDiscoveredResourceRequest _
@@ -367,12 +366,12 @@ instance encodeDisassociateDiscoveredResourceRequest :: Encode DisassociateDisco
 
 -- | Constructs DisassociateDiscoveredResourceRequest from required parameters
 newDisassociateDiscoveredResourceRequest :: ConfigurationId -> MigrationTaskName -> ProgressUpdateStream -> DisassociateDiscoveredResourceRequest
-newDisassociateDiscoveredResourceRequest _ConfigurationId _MigrationTaskName _ProgressUpdateStream = DisassociateDiscoveredResourceRequest { "ConfigurationId": _ConfigurationId, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newDisassociateDiscoveredResourceRequest _ConfigurationId _MigrationTaskName _ProgressUpdateStream = DisassociateDiscoveredResourceRequest { "ConfigurationId": _ConfigurationId, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 -- | Constructs DisassociateDiscoveredResourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisassociateDiscoveredResourceRequest' :: ConfigurationId -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ConfigurationId" :: (ConfigurationId) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ConfigurationId" :: (ConfigurationId) , "DryRun" :: NullOrUndefined (DryRun) } ) -> DisassociateDiscoveredResourceRequest
-newDisassociateDiscoveredResourceRequest' _ConfigurationId _MigrationTaskName _ProgressUpdateStream customize = (DisassociateDiscoveredResourceRequest <<< customize) { "ConfigurationId": _ConfigurationId, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newDisassociateDiscoveredResourceRequest' :: ConfigurationId -> MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ConfigurationId" :: (ConfigurationId) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ConfigurationId" :: (ConfigurationId) , "DryRun" :: Maybe (DryRun) } ) -> DisassociateDiscoveredResourceRequest
+newDisassociateDiscoveredResourceRequest' _ConfigurationId _MigrationTaskName _ProgressUpdateStream customize = (DisassociateDiscoveredResourceRequest <<< customize) { "ConfigurationId": _ConfigurationId, "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 
 
@@ -388,7 +387,7 @@ instance encodeDisassociateDiscoveredResourceResult :: Encode DisassociateDiscov
 -- | <p>Object representing the on-premises resource being migrated.</p>
 newtype DiscoveredResource = DiscoveredResource 
   { "ConfigurationId" :: (ConfigurationId)
-  , "Description" :: NullOrUndefined (DiscoveredResourceDescription)
+  , "Description" :: Maybe (DiscoveredResourceDescription)
   }
 derive instance newtypeDiscoveredResource :: Newtype DiscoveredResource _
 derive instance repGenericDiscoveredResource :: Generic DiscoveredResource _
@@ -398,12 +397,12 @@ instance encodeDiscoveredResource :: Encode DiscoveredResource where encode = ge
 
 -- | Constructs DiscoveredResource from required parameters
 newDiscoveredResource :: ConfigurationId -> DiscoveredResource
-newDiscoveredResource _ConfigurationId = DiscoveredResource { "ConfigurationId": _ConfigurationId, "Description": (NullOrUndefined Nothing) }
+newDiscoveredResource _ConfigurationId = DiscoveredResource { "ConfigurationId": _ConfigurationId, "Description": Nothing }
 
 -- | Constructs DiscoveredResource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDiscoveredResource' :: ConfigurationId -> ( { "ConfigurationId" :: (ConfigurationId) , "Description" :: NullOrUndefined (DiscoveredResourceDescription) } -> {"ConfigurationId" :: (ConfigurationId) , "Description" :: NullOrUndefined (DiscoveredResourceDescription) } ) -> DiscoveredResource
-newDiscoveredResource' _ConfigurationId customize = (DiscoveredResource <<< customize) { "ConfigurationId": _ConfigurationId, "Description": (NullOrUndefined Nothing) }
+newDiscoveredResource' :: ConfigurationId -> ( { "ConfigurationId" :: (ConfigurationId) , "Description" :: Maybe (DiscoveredResourceDescription) } -> {"ConfigurationId" :: (ConfigurationId) , "Description" :: Maybe (DiscoveredResourceDescription) } ) -> DiscoveredResource
+newDiscoveredResource' _ConfigurationId customize = (DiscoveredResource <<< customize) { "ConfigurationId": _ConfigurationId, "Description": Nothing }
 
 
 
@@ -436,7 +435,7 @@ instance encodeDryRun :: Encode DryRun where encode = genericEncode options
 
 -- | <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to "true".</p>
 newtype DryRunOperation = DryRunOperation 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDryRunOperation :: Newtype DryRunOperation _
 derive instance repGenericDryRunOperation :: Generic DryRunOperation _
@@ -446,12 +445,12 @@ instance encodeDryRunOperation :: Encode DryRunOperation where encode = genericE
 
 -- | Constructs DryRunOperation from required parameters
 newDryRunOperation :: DryRunOperation
-newDryRunOperation  = DryRunOperation { "Message": (NullOrUndefined Nothing) }
+newDryRunOperation  = DryRunOperation { "Message": Nothing }
 
 -- | Constructs DryRunOperation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDryRunOperation' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> DryRunOperation
-newDryRunOperation'  customize = (DryRunOperation <<< customize) { "Message": (NullOrUndefined Nothing) }
+newDryRunOperation' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> DryRunOperation
+newDryRunOperation'  customize = (DryRunOperation <<< customize) { "Message": Nothing }
 
 
 
@@ -467,7 +466,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 newtype ImportMigrationTaskRequest = ImportMigrationTaskRequest 
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeImportMigrationTaskRequest :: Newtype ImportMigrationTaskRequest _
 derive instance repGenericImportMigrationTaskRequest :: Generic ImportMigrationTaskRequest _
@@ -477,12 +476,12 @@ instance encodeImportMigrationTaskRequest :: Encode ImportMigrationTaskRequest w
 
 -- | Constructs ImportMigrationTaskRequest from required parameters
 newImportMigrationTaskRequest :: MigrationTaskName -> ProgressUpdateStream -> ImportMigrationTaskRequest
-newImportMigrationTaskRequest _MigrationTaskName _ProgressUpdateStream = ImportMigrationTaskRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newImportMigrationTaskRequest _MigrationTaskName _ProgressUpdateStream = ImportMigrationTaskRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 -- | Constructs ImportMigrationTaskRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImportMigrationTaskRequest' :: MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DryRun" :: NullOrUndefined (DryRun) } ) -> ImportMigrationTaskRequest
-newImportMigrationTaskRequest' _MigrationTaskName _ProgressUpdateStream customize = (ImportMigrationTaskRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": (NullOrUndefined Nothing) }
+newImportMigrationTaskRequest' :: MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "DryRun" :: Maybe (DryRun) } ) -> ImportMigrationTaskRequest
+newImportMigrationTaskRequest' _MigrationTaskName _ProgressUpdateStream customize = (ImportMigrationTaskRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "DryRun": Nothing }
 
 
 
@@ -497,7 +496,7 @@ instance encodeImportMigrationTaskResult :: Encode ImportMigrationTaskResult whe
 
 -- | <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
 newtype InternalServerError = InternalServerError 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServerError :: Newtype InternalServerError _
 derive instance repGenericInternalServerError :: Generic InternalServerError _
@@ -507,18 +506,18 @@ instance encodeInternalServerError :: Encode InternalServerError where encode = 
 
 -- | Constructs InternalServerError from required parameters
 newInternalServerError :: InternalServerError
-newInternalServerError  = InternalServerError { "Message": (NullOrUndefined Nothing) }
+newInternalServerError  = InternalServerError { "Message": Nothing }
 
 -- | Constructs InternalServerError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerError' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServerError
-newInternalServerError'  customize = (InternalServerError <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServerError' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InternalServerError
+newInternalServerError'  customize = (InternalServerError <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
 newtype InvalidInputException = InvalidInputException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidInputException :: Newtype InvalidInputException _
 derive instance repGenericInvalidInputException :: Generic InvalidInputException _
@@ -528,12 +527,12 @@ instance encodeInvalidInputException :: Encode InvalidInputException where encod
 
 -- | Constructs InvalidInputException from required parameters
 newInvalidInputException :: InvalidInputException
-newInvalidInputException  = InvalidInputException { "Message": (NullOrUndefined Nothing) }
+newInvalidInputException  = InvalidInputException { "Message": Nothing }
 
 -- | Constructs InvalidInputException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidInputException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidInputException
-newInvalidInputException'  customize = (InvalidInputException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidInputException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidInputException
+newInvalidInputException'  customize = (InvalidInputException <<< customize) { "Message": Nothing }
 
 
 
@@ -549,8 +548,8 @@ instance encodeLatestResourceAttributeList :: Encode LatestResourceAttributeList
 newtype ListCreatedArtifactsRequest = ListCreatedArtifactsRequest 
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
-  , "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxResultsCreatedArtifacts)
+  , "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxResultsCreatedArtifacts)
   }
 derive instance newtypeListCreatedArtifactsRequest :: Newtype ListCreatedArtifactsRequest _
 derive instance repGenericListCreatedArtifactsRequest :: Generic ListCreatedArtifactsRequest _
@@ -560,18 +559,18 @@ instance encodeListCreatedArtifactsRequest :: Encode ListCreatedArtifactsRequest
 
 -- | Constructs ListCreatedArtifactsRequest from required parameters
 newListCreatedArtifactsRequest :: MigrationTaskName -> ProgressUpdateStream -> ListCreatedArtifactsRequest
-newListCreatedArtifactsRequest _MigrationTaskName _ProgressUpdateStream = ListCreatedArtifactsRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListCreatedArtifactsRequest _MigrationTaskName _ProgressUpdateStream = ListCreatedArtifactsRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListCreatedArtifactsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListCreatedArtifactsRequest' :: MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResultsCreatedArtifacts) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResultsCreatedArtifacts) } ) -> ListCreatedArtifactsRequest
-newListCreatedArtifactsRequest' _MigrationTaskName _ProgressUpdateStream customize = (ListCreatedArtifactsRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListCreatedArtifactsRequest' :: MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResultsCreatedArtifacts) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResultsCreatedArtifacts) } ) -> ListCreatedArtifactsRequest
+newListCreatedArtifactsRequest' _MigrationTaskName _ProgressUpdateStream customize = (ListCreatedArtifactsRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListCreatedArtifactsResult = ListCreatedArtifactsResult 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "CreatedArtifactList" :: NullOrUndefined (CreatedArtifactList)
+  { "NextToken" :: Maybe (Token)
+  , "CreatedArtifactList" :: Maybe (CreatedArtifactList)
   }
 derive instance newtypeListCreatedArtifactsResult :: Newtype ListCreatedArtifactsResult _
 derive instance repGenericListCreatedArtifactsResult :: Generic ListCreatedArtifactsResult _
@@ -581,20 +580,20 @@ instance encodeListCreatedArtifactsResult :: Encode ListCreatedArtifactsResult w
 
 -- | Constructs ListCreatedArtifactsResult from required parameters
 newListCreatedArtifactsResult :: ListCreatedArtifactsResult
-newListCreatedArtifactsResult  = ListCreatedArtifactsResult { "CreatedArtifactList": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListCreatedArtifactsResult  = ListCreatedArtifactsResult { "CreatedArtifactList": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListCreatedArtifactsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListCreatedArtifactsResult' :: ( { "NextToken" :: NullOrUndefined (Token) , "CreatedArtifactList" :: NullOrUndefined (CreatedArtifactList) } -> {"NextToken" :: NullOrUndefined (Token) , "CreatedArtifactList" :: NullOrUndefined (CreatedArtifactList) } ) -> ListCreatedArtifactsResult
-newListCreatedArtifactsResult'  customize = (ListCreatedArtifactsResult <<< customize) { "CreatedArtifactList": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListCreatedArtifactsResult' :: ( { "NextToken" :: Maybe (Token) , "CreatedArtifactList" :: Maybe (CreatedArtifactList) } -> {"NextToken" :: Maybe (Token) , "CreatedArtifactList" :: Maybe (CreatedArtifactList) } ) -> ListCreatedArtifactsResult
+newListCreatedArtifactsResult'  customize = (ListCreatedArtifactsResult <<< customize) { "CreatedArtifactList": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListDiscoveredResourcesRequest = ListDiscoveredResourcesRequest 
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
-  , "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxResultsResources)
+  , "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxResultsResources)
   }
 derive instance newtypeListDiscoveredResourcesRequest :: Newtype ListDiscoveredResourcesRequest _
 derive instance repGenericListDiscoveredResourcesRequest :: Generic ListDiscoveredResourcesRequest _
@@ -604,18 +603,18 @@ instance encodeListDiscoveredResourcesRequest :: Encode ListDiscoveredResourcesR
 
 -- | Constructs ListDiscoveredResourcesRequest from required parameters
 newListDiscoveredResourcesRequest :: MigrationTaskName -> ProgressUpdateStream -> ListDiscoveredResourcesRequest
-newListDiscoveredResourcesRequest _MigrationTaskName _ProgressUpdateStream = ListDiscoveredResourcesRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListDiscoveredResourcesRequest _MigrationTaskName _ProgressUpdateStream = ListDiscoveredResourcesRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListDiscoveredResourcesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDiscoveredResourcesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResultsResources) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResultsResources) } ) -> ListDiscoveredResourcesRequest
-newListDiscoveredResourcesRequest' _MigrationTaskName _ProgressUpdateStream customize = (ListDiscoveredResourcesRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListDiscoveredResourcesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResultsResources) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResultsResources) } ) -> ListDiscoveredResourcesRequest
+newListDiscoveredResourcesRequest' _MigrationTaskName _ProgressUpdateStream customize = (ListDiscoveredResourcesRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListDiscoveredResourcesResult = ListDiscoveredResourcesResult 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "DiscoveredResourceList" :: NullOrUndefined (DiscoveredResourceList)
+  { "NextToken" :: Maybe (Token)
+  , "DiscoveredResourceList" :: Maybe (DiscoveredResourceList)
   }
 derive instance newtypeListDiscoveredResourcesResult :: Newtype ListDiscoveredResourcesResult _
 derive instance repGenericListDiscoveredResourcesResult :: Generic ListDiscoveredResourcesResult _
@@ -625,19 +624,19 @@ instance encodeListDiscoveredResourcesResult :: Encode ListDiscoveredResourcesRe
 
 -- | Constructs ListDiscoveredResourcesResult from required parameters
 newListDiscoveredResourcesResult :: ListDiscoveredResourcesResult
-newListDiscoveredResourcesResult  = ListDiscoveredResourcesResult { "DiscoveredResourceList": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListDiscoveredResourcesResult  = ListDiscoveredResourcesResult { "DiscoveredResourceList": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListDiscoveredResourcesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDiscoveredResourcesResult' :: ( { "NextToken" :: NullOrUndefined (Token) , "DiscoveredResourceList" :: NullOrUndefined (DiscoveredResourceList) } -> {"NextToken" :: NullOrUndefined (Token) , "DiscoveredResourceList" :: NullOrUndefined (DiscoveredResourceList) } ) -> ListDiscoveredResourcesResult
-newListDiscoveredResourcesResult'  customize = (ListDiscoveredResourcesResult <<< customize) { "DiscoveredResourceList": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListDiscoveredResourcesResult' :: ( { "NextToken" :: Maybe (Token) , "DiscoveredResourceList" :: Maybe (DiscoveredResourceList) } -> {"NextToken" :: Maybe (Token) , "DiscoveredResourceList" :: Maybe (DiscoveredResourceList) } ) -> ListDiscoveredResourcesResult
+newListDiscoveredResourcesResult'  customize = (ListDiscoveredResourcesResult <<< customize) { "DiscoveredResourceList": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListMigrationTasksRequest = ListMigrationTasksRequest 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "ResourceName" :: NullOrUndefined (ResourceName)
+  { "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "ResourceName" :: Maybe (ResourceName)
   }
 derive instance newtypeListMigrationTasksRequest :: Newtype ListMigrationTasksRequest _
 derive instance repGenericListMigrationTasksRequest :: Generic ListMigrationTasksRequest _
@@ -647,18 +646,18 @@ instance encodeListMigrationTasksRequest :: Encode ListMigrationTasksRequest whe
 
 -- | Constructs ListMigrationTasksRequest from required parameters
 newListMigrationTasksRequest :: ListMigrationTasksRequest
-newListMigrationTasksRequest  = ListMigrationTasksRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceName": (NullOrUndefined Nothing) }
+newListMigrationTasksRequest  = ListMigrationTasksRequest { "MaxResults": Nothing, "NextToken": Nothing, "ResourceName": Nothing }
 
 -- | Constructs ListMigrationTasksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListMigrationTasksRequest' :: ( { "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResults) , "ResourceName" :: NullOrUndefined (ResourceName) } -> {"NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResults) , "ResourceName" :: NullOrUndefined (ResourceName) } ) -> ListMigrationTasksRequest
-newListMigrationTasksRequest'  customize = (ListMigrationTasksRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceName": (NullOrUndefined Nothing) }
+newListMigrationTasksRequest' :: ( { "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResults) , "ResourceName" :: Maybe (ResourceName) } -> {"NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResults) , "ResourceName" :: Maybe (ResourceName) } ) -> ListMigrationTasksRequest
+newListMigrationTasksRequest'  customize = (ListMigrationTasksRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing, "ResourceName": Nothing }
 
 
 
 newtype ListMigrationTasksResult = ListMigrationTasksResult 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "MigrationTaskSummaryList" :: NullOrUndefined (MigrationTaskSummaryList)
+  { "NextToken" :: Maybe (Token)
+  , "MigrationTaskSummaryList" :: Maybe (MigrationTaskSummaryList)
   }
 derive instance newtypeListMigrationTasksResult :: Newtype ListMigrationTasksResult _
 derive instance repGenericListMigrationTasksResult :: Generic ListMigrationTasksResult _
@@ -668,18 +667,18 @@ instance encodeListMigrationTasksResult :: Encode ListMigrationTasksResult where
 
 -- | Constructs ListMigrationTasksResult from required parameters
 newListMigrationTasksResult :: ListMigrationTasksResult
-newListMigrationTasksResult  = ListMigrationTasksResult { "MigrationTaskSummaryList": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListMigrationTasksResult  = ListMigrationTasksResult { "MigrationTaskSummaryList": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListMigrationTasksResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListMigrationTasksResult' :: ( { "NextToken" :: NullOrUndefined (Token) , "MigrationTaskSummaryList" :: NullOrUndefined (MigrationTaskSummaryList) } -> {"NextToken" :: NullOrUndefined (Token) , "MigrationTaskSummaryList" :: NullOrUndefined (MigrationTaskSummaryList) } ) -> ListMigrationTasksResult
-newListMigrationTasksResult'  customize = (ListMigrationTasksResult <<< customize) { "MigrationTaskSummaryList": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListMigrationTasksResult' :: ( { "NextToken" :: Maybe (Token) , "MigrationTaskSummaryList" :: Maybe (MigrationTaskSummaryList) } -> {"NextToken" :: Maybe (Token) , "MigrationTaskSummaryList" :: Maybe (MigrationTaskSummaryList) } ) -> ListMigrationTasksResult
+newListMigrationTasksResult'  customize = (ListMigrationTasksResult <<< customize) { "MigrationTaskSummaryList": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListProgressUpdateStreamsRequest = ListProgressUpdateStreamsRequest 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  { "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListProgressUpdateStreamsRequest :: Newtype ListProgressUpdateStreamsRequest _
 derive instance repGenericListProgressUpdateStreamsRequest :: Generic ListProgressUpdateStreamsRequest _
@@ -689,18 +688,18 @@ instance encodeListProgressUpdateStreamsRequest :: Encode ListProgressUpdateStre
 
 -- | Constructs ListProgressUpdateStreamsRequest from required parameters
 newListProgressUpdateStreamsRequest :: ListProgressUpdateStreamsRequest
-newListProgressUpdateStreamsRequest  = ListProgressUpdateStreamsRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListProgressUpdateStreamsRequest  = ListProgressUpdateStreamsRequest { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListProgressUpdateStreamsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListProgressUpdateStreamsRequest' :: ( { "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> ListProgressUpdateStreamsRequest
-newListProgressUpdateStreamsRequest'  customize = (ListProgressUpdateStreamsRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListProgressUpdateStreamsRequest' :: ( { "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResults) } -> {"NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxResults) } ) -> ListProgressUpdateStreamsRequest
+newListProgressUpdateStreamsRequest'  customize = (ListProgressUpdateStreamsRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListProgressUpdateStreamsResult = ListProgressUpdateStreamsResult 
-  { "ProgressUpdateStreamSummaryList" :: NullOrUndefined (ProgressUpdateStreamSummaryList)
-  , "NextToken" :: NullOrUndefined (Token)
+  { "ProgressUpdateStreamSummaryList" :: Maybe (ProgressUpdateStreamSummaryList)
+  , "NextToken" :: Maybe (Token)
   }
 derive instance newtypeListProgressUpdateStreamsResult :: Newtype ListProgressUpdateStreamsResult _
 derive instance repGenericListProgressUpdateStreamsResult :: Generic ListProgressUpdateStreamsResult _
@@ -710,12 +709,12 @@ instance encodeListProgressUpdateStreamsResult :: Encode ListProgressUpdateStrea
 
 -- | Constructs ListProgressUpdateStreamsResult from required parameters
 newListProgressUpdateStreamsResult :: ListProgressUpdateStreamsResult
-newListProgressUpdateStreamsResult  = ListProgressUpdateStreamsResult { "NextToken": (NullOrUndefined Nothing), "ProgressUpdateStreamSummaryList": (NullOrUndefined Nothing) }
+newListProgressUpdateStreamsResult  = ListProgressUpdateStreamsResult { "NextToken": Nothing, "ProgressUpdateStreamSummaryList": Nothing }
 
 -- | Constructs ListProgressUpdateStreamsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListProgressUpdateStreamsResult' :: ( { "ProgressUpdateStreamSummaryList" :: NullOrUndefined (ProgressUpdateStreamSummaryList) , "NextToken" :: NullOrUndefined (Token) } -> {"ProgressUpdateStreamSummaryList" :: NullOrUndefined (ProgressUpdateStreamSummaryList) , "NextToken" :: NullOrUndefined (Token) } ) -> ListProgressUpdateStreamsResult
-newListProgressUpdateStreamsResult'  customize = (ListProgressUpdateStreamsResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "ProgressUpdateStreamSummaryList": (NullOrUndefined Nothing) }
+newListProgressUpdateStreamsResult' :: ( { "ProgressUpdateStreamSummaryList" :: Maybe (ProgressUpdateStreamSummaryList) , "NextToken" :: Maybe (Token) } -> {"ProgressUpdateStreamSummaryList" :: Maybe (ProgressUpdateStreamSummaryList) , "NextToken" :: Maybe (Token) } ) -> ListProgressUpdateStreamsResult
+newListProgressUpdateStreamsResult'  customize = (ListProgressUpdateStreamsResult <<< customize) { "NextToken": Nothing, "ProgressUpdateStreamSummaryList": Nothing }
 
 
 
@@ -748,11 +747,11 @@ instance encodeMaxResultsResources :: Encode MaxResultsResources where encode = 
 
 -- | <p>Represents a migration task in a migration tool.</p>
 newtype MigrationTask = MigrationTask 
-  { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream)
-  , "MigrationTaskName" :: NullOrUndefined (MigrationTaskName)
-  , "Task" :: NullOrUndefined (Task)
-  , "UpdateDateTime" :: NullOrUndefined (UpdateDateTime)
-  , "ResourceAttributeList" :: NullOrUndefined (LatestResourceAttributeList)
+  { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream)
+  , "MigrationTaskName" :: Maybe (MigrationTaskName)
+  , "Task" :: Maybe (Task)
+  , "UpdateDateTime" :: Maybe (UpdateDateTime)
+  , "ResourceAttributeList" :: Maybe (LatestResourceAttributeList)
   }
 derive instance newtypeMigrationTask :: Newtype MigrationTask _
 derive instance repGenericMigrationTask :: Generic MigrationTask _
@@ -762,12 +761,12 @@ instance encodeMigrationTask :: Encode MigrationTask where encode = genericEncod
 
 -- | Constructs MigrationTask from required parameters
 newMigrationTask :: MigrationTask
-newMigrationTask  = MigrationTask { "MigrationTaskName": (NullOrUndefined Nothing), "ProgressUpdateStream": (NullOrUndefined Nothing), "ResourceAttributeList": (NullOrUndefined Nothing), "Task": (NullOrUndefined Nothing), "UpdateDateTime": (NullOrUndefined Nothing) }
+newMigrationTask  = MigrationTask { "MigrationTaskName": Nothing, "ProgressUpdateStream": Nothing, "ResourceAttributeList": Nothing, "Task": Nothing, "UpdateDateTime": Nothing }
 
 -- | Constructs MigrationTask's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMigrationTask' :: ( { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream) , "MigrationTaskName" :: NullOrUndefined (MigrationTaskName) , "Task" :: NullOrUndefined (Task) , "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) , "ResourceAttributeList" :: NullOrUndefined (LatestResourceAttributeList) } -> {"ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream) , "MigrationTaskName" :: NullOrUndefined (MigrationTaskName) , "Task" :: NullOrUndefined (Task) , "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) , "ResourceAttributeList" :: NullOrUndefined (LatestResourceAttributeList) } ) -> MigrationTask
-newMigrationTask'  customize = (MigrationTask <<< customize) { "MigrationTaskName": (NullOrUndefined Nothing), "ProgressUpdateStream": (NullOrUndefined Nothing), "ResourceAttributeList": (NullOrUndefined Nothing), "Task": (NullOrUndefined Nothing), "UpdateDateTime": (NullOrUndefined Nothing) }
+newMigrationTask' :: ( { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream) , "MigrationTaskName" :: Maybe (MigrationTaskName) , "Task" :: Maybe (Task) , "UpdateDateTime" :: Maybe (UpdateDateTime) , "ResourceAttributeList" :: Maybe (LatestResourceAttributeList) } -> {"ProgressUpdateStream" :: Maybe (ProgressUpdateStream) , "MigrationTaskName" :: Maybe (MigrationTaskName) , "Task" :: Maybe (Task) , "UpdateDateTime" :: Maybe (UpdateDateTime) , "ResourceAttributeList" :: Maybe (LatestResourceAttributeList) } ) -> MigrationTask
+newMigrationTask'  customize = (MigrationTask <<< customize) { "MigrationTaskName": Nothing, "ProgressUpdateStream": Nothing, "ResourceAttributeList": Nothing, "Task": Nothing, "UpdateDateTime": Nothing }
 
 
 
@@ -782,12 +781,12 @@ instance encodeMigrationTaskName :: Encode MigrationTaskName where encode = gene
 
 -- | <p>MigrationTaskSummary includes <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and <code>UpdateDateTime</code> for each task.</p>
 newtype MigrationTaskSummary = MigrationTaskSummary 
-  { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream)
-  , "MigrationTaskName" :: NullOrUndefined (MigrationTaskName)
-  , "Status" :: NullOrUndefined (Status)
-  , "ProgressPercent" :: NullOrUndefined (ProgressPercent)
-  , "StatusDetail" :: NullOrUndefined (StatusDetail)
-  , "UpdateDateTime" :: NullOrUndefined (UpdateDateTime)
+  { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream)
+  , "MigrationTaskName" :: Maybe (MigrationTaskName)
+  , "Status" :: Maybe (Status)
+  , "ProgressPercent" :: Maybe (ProgressPercent)
+  , "StatusDetail" :: Maybe (StatusDetail)
+  , "UpdateDateTime" :: Maybe (UpdateDateTime)
   }
 derive instance newtypeMigrationTaskSummary :: Newtype MigrationTaskSummary _
 derive instance repGenericMigrationTaskSummary :: Generic MigrationTaskSummary _
@@ -797,12 +796,12 @@ instance encodeMigrationTaskSummary :: Encode MigrationTaskSummary where encode 
 
 -- | Constructs MigrationTaskSummary from required parameters
 newMigrationTaskSummary :: MigrationTaskSummary
-newMigrationTaskSummary  = MigrationTaskSummary { "MigrationTaskName": (NullOrUndefined Nothing), "ProgressPercent": (NullOrUndefined Nothing), "ProgressUpdateStream": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing), "UpdateDateTime": (NullOrUndefined Nothing) }
+newMigrationTaskSummary  = MigrationTaskSummary { "MigrationTaskName": Nothing, "ProgressPercent": Nothing, "ProgressUpdateStream": Nothing, "Status": Nothing, "StatusDetail": Nothing, "UpdateDateTime": Nothing }
 
 -- | Constructs MigrationTaskSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMigrationTaskSummary' :: ( { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream) , "MigrationTaskName" :: NullOrUndefined (MigrationTaskName) , "Status" :: NullOrUndefined (Status) , "ProgressPercent" :: NullOrUndefined (ProgressPercent) , "StatusDetail" :: NullOrUndefined (StatusDetail) , "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) } -> {"ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream) , "MigrationTaskName" :: NullOrUndefined (MigrationTaskName) , "Status" :: NullOrUndefined (Status) , "ProgressPercent" :: NullOrUndefined (ProgressPercent) , "StatusDetail" :: NullOrUndefined (StatusDetail) , "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) } ) -> MigrationTaskSummary
-newMigrationTaskSummary'  customize = (MigrationTaskSummary <<< customize) { "MigrationTaskName": (NullOrUndefined Nothing), "ProgressPercent": (NullOrUndefined Nothing), "ProgressUpdateStream": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing), "UpdateDateTime": (NullOrUndefined Nothing) }
+newMigrationTaskSummary' :: ( { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream) , "MigrationTaskName" :: Maybe (MigrationTaskName) , "Status" :: Maybe (Status) , "ProgressPercent" :: Maybe (ProgressPercent) , "StatusDetail" :: Maybe (StatusDetail) , "UpdateDateTime" :: Maybe (UpdateDateTime) } -> {"ProgressUpdateStream" :: Maybe (ProgressUpdateStream) , "MigrationTaskName" :: Maybe (MigrationTaskName) , "Status" :: Maybe (Status) , "ProgressPercent" :: Maybe (ProgressPercent) , "StatusDetail" :: Maybe (StatusDetail) , "UpdateDateTime" :: Maybe (UpdateDateTime) } ) -> MigrationTaskSummary
+newMigrationTaskSummary'  customize = (MigrationTaskSummary <<< customize) { "MigrationTaskName": Nothing, "ProgressPercent": Nothing, "ProgressUpdateStream": Nothing, "Status": Nothing, "StatusDetail": Nothing, "UpdateDateTime": Nothing }
 
 
 
@@ -827,7 +826,7 @@ instance encodeNextUpdateSeconds :: Encode NextUpdateSeconds where encode = gene
 newtype NotifyApplicationStateRequest = NotifyApplicationStateRequest 
   { "ApplicationId" :: (ApplicationId)
   , "Status" :: (ApplicationStatus)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeNotifyApplicationStateRequest :: Newtype NotifyApplicationStateRequest _
 derive instance repGenericNotifyApplicationStateRequest :: Generic NotifyApplicationStateRequest _
@@ -837,12 +836,12 @@ instance encodeNotifyApplicationStateRequest :: Encode NotifyApplicationStateReq
 
 -- | Constructs NotifyApplicationStateRequest from required parameters
 newNotifyApplicationStateRequest :: ApplicationId -> ApplicationStatus -> NotifyApplicationStateRequest
-newNotifyApplicationStateRequest _ApplicationId _Status = NotifyApplicationStateRequest { "ApplicationId": _ApplicationId, "Status": _Status, "DryRun": (NullOrUndefined Nothing) }
+newNotifyApplicationStateRequest _ApplicationId _Status = NotifyApplicationStateRequest { "ApplicationId": _ApplicationId, "Status": _Status, "DryRun": Nothing }
 
 -- | Constructs NotifyApplicationStateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotifyApplicationStateRequest' :: ApplicationId -> ApplicationStatus -> ( { "ApplicationId" :: (ApplicationId) , "Status" :: (ApplicationStatus) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ApplicationId" :: (ApplicationId) , "Status" :: (ApplicationStatus) , "DryRun" :: NullOrUndefined (DryRun) } ) -> NotifyApplicationStateRequest
-newNotifyApplicationStateRequest' _ApplicationId _Status customize = (NotifyApplicationStateRequest <<< customize) { "ApplicationId": _ApplicationId, "Status": _Status, "DryRun": (NullOrUndefined Nothing) }
+newNotifyApplicationStateRequest' :: ApplicationId -> ApplicationStatus -> ( { "ApplicationId" :: (ApplicationId) , "Status" :: (ApplicationStatus) , "DryRun" :: Maybe (DryRun) } -> {"ApplicationId" :: (ApplicationId) , "Status" :: (ApplicationStatus) , "DryRun" :: Maybe (DryRun) } ) -> NotifyApplicationStateRequest
+newNotifyApplicationStateRequest' _ApplicationId _Status customize = (NotifyApplicationStateRequest <<< customize) { "ApplicationId": _ApplicationId, "Status": _Status, "DryRun": Nothing }
 
 
 
@@ -861,7 +860,7 @@ newtype NotifyMigrationTaskStateRequest = NotifyMigrationTaskStateRequest
   , "Task" :: (Task)
   , "UpdateDateTime" :: (UpdateDateTime)
   , "NextUpdateSeconds" :: (NextUpdateSeconds)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypeNotifyMigrationTaskStateRequest :: Newtype NotifyMigrationTaskStateRequest _
 derive instance repGenericNotifyMigrationTaskStateRequest :: Generic NotifyMigrationTaskStateRequest _
@@ -871,12 +870,12 @@ instance encodeNotifyMigrationTaskStateRequest :: Encode NotifyMigrationTaskStat
 
 -- | Constructs NotifyMigrationTaskStateRequest from required parameters
 newNotifyMigrationTaskStateRequest :: MigrationTaskName -> NextUpdateSeconds -> ProgressUpdateStream -> Task -> UpdateDateTime -> NotifyMigrationTaskStateRequest
-newNotifyMigrationTaskStateRequest _MigrationTaskName _NextUpdateSeconds _ProgressUpdateStream _Task _UpdateDateTime = NotifyMigrationTaskStateRequest { "MigrationTaskName": _MigrationTaskName, "NextUpdateSeconds": _NextUpdateSeconds, "ProgressUpdateStream": _ProgressUpdateStream, "Task": _Task, "UpdateDateTime": _UpdateDateTime, "DryRun": (NullOrUndefined Nothing) }
+newNotifyMigrationTaskStateRequest _MigrationTaskName _NextUpdateSeconds _ProgressUpdateStream _Task _UpdateDateTime = NotifyMigrationTaskStateRequest { "MigrationTaskName": _MigrationTaskName, "NextUpdateSeconds": _NextUpdateSeconds, "ProgressUpdateStream": _ProgressUpdateStream, "Task": _Task, "UpdateDateTime": _UpdateDateTime, "DryRun": Nothing }
 
 -- | Constructs NotifyMigrationTaskStateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotifyMigrationTaskStateRequest' :: MigrationTaskName -> NextUpdateSeconds -> ProgressUpdateStream -> Task -> UpdateDateTime -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "Task" :: (Task) , "UpdateDateTime" :: (UpdateDateTime) , "NextUpdateSeconds" :: (NextUpdateSeconds) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "Task" :: (Task) , "UpdateDateTime" :: (UpdateDateTime) , "NextUpdateSeconds" :: (NextUpdateSeconds) , "DryRun" :: NullOrUndefined (DryRun) } ) -> NotifyMigrationTaskStateRequest
-newNotifyMigrationTaskStateRequest' _MigrationTaskName _NextUpdateSeconds _ProgressUpdateStream _Task _UpdateDateTime customize = (NotifyMigrationTaskStateRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "NextUpdateSeconds": _NextUpdateSeconds, "ProgressUpdateStream": _ProgressUpdateStream, "Task": _Task, "UpdateDateTime": _UpdateDateTime, "DryRun": (NullOrUndefined Nothing) }
+newNotifyMigrationTaskStateRequest' :: MigrationTaskName -> NextUpdateSeconds -> ProgressUpdateStream -> Task -> UpdateDateTime -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "Task" :: (Task) , "UpdateDateTime" :: (UpdateDateTime) , "NextUpdateSeconds" :: (NextUpdateSeconds) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "Task" :: (Task) , "UpdateDateTime" :: (UpdateDateTime) , "NextUpdateSeconds" :: (NextUpdateSeconds) , "DryRun" :: Maybe (DryRun) } ) -> NotifyMigrationTaskStateRequest
+newNotifyMigrationTaskStateRequest' _MigrationTaskName _NextUpdateSeconds _ProgressUpdateStream _Task _UpdateDateTime customize = (NotifyMigrationTaskStateRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "NextUpdateSeconds": _NextUpdateSeconds, "ProgressUpdateStream": _ProgressUpdateStream, "Task": _Task, "UpdateDateTime": _UpdateDateTime, "DryRun": Nothing }
 
 
 
@@ -891,7 +890,7 @@ instance encodeNotifyMigrationTaskStateResult :: Encode NotifyMigrationTaskState
 
 -- | <p>Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
 newtype PolicyErrorException = PolicyErrorException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypePolicyErrorException :: Newtype PolicyErrorException _
 derive instance repGenericPolicyErrorException :: Generic PolicyErrorException _
@@ -901,12 +900,12 @@ instance encodePolicyErrorException :: Encode PolicyErrorException where encode 
 
 -- | Constructs PolicyErrorException from required parameters
 newPolicyErrorException :: PolicyErrorException
-newPolicyErrorException  = PolicyErrorException { "Message": (NullOrUndefined Nothing) }
+newPolicyErrorException  = PolicyErrorException { "Message": Nothing }
 
 -- | Constructs PolicyErrorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPolicyErrorException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> PolicyErrorException
-newPolicyErrorException'  customize = (PolicyErrorException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newPolicyErrorException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> PolicyErrorException
+newPolicyErrorException'  customize = (PolicyErrorException <<< customize) { "Message": Nothing }
 
 
 
@@ -930,7 +929,7 @@ instance encodeProgressUpdateStream :: Encode ProgressUpdateStream where encode 
 
 -- | <p>Summary of the AWS resource used for access control that is implicitly linked to your AWS account.</p>
 newtype ProgressUpdateStreamSummary = ProgressUpdateStreamSummary 
-  { "ProgressUpdateStreamName" :: NullOrUndefined (ProgressUpdateStream)
+  { "ProgressUpdateStreamName" :: Maybe (ProgressUpdateStream)
   }
 derive instance newtypeProgressUpdateStreamSummary :: Newtype ProgressUpdateStreamSummary _
 derive instance repGenericProgressUpdateStreamSummary :: Generic ProgressUpdateStreamSummary _
@@ -940,12 +939,12 @@ instance encodeProgressUpdateStreamSummary :: Encode ProgressUpdateStreamSummary
 
 -- | Constructs ProgressUpdateStreamSummary from required parameters
 newProgressUpdateStreamSummary :: ProgressUpdateStreamSummary
-newProgressUpdateStreamSummary  = ProgressUpdateStreamSummary { "ProgressUpdateStreamName": (NullOrUndefined Nothing) }
+newProgressUpdateStreamSummary  = ProgressUpdateStreamSummary { "ProgressUpdateStreamName": Nothing }
 
 -- | Constructs ProgressUpdateStreamSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newProgressUpdateStreamSummary' :: ( { "ProgressUpdateStreamName" :: NullOrUndefined (ProgressUpdateStream) } -> {"ProgressUpdateStreamName" :: NullOrUndefined (ProgressUpdateStream) } ) -> ProgressUpdateStreamSummary
-newProgressUpdateStreamSummary'  customize = (ProgressUpdateStreamSummary <<< customize) { "ProgressUpdateStreamName": (NullOrUndefined Nothing) }
+newProgressUpdateStreamSummary' :: ( { "ProgressUpdateStreamName" :: Maybe (ProgressUpdateStream) } -> {"ProgressUpdateStreamName" :: Maybe (ProgressUpdateStream) } ) -> ProgressUpdateStreamSummary
+newProgressUpdateStreamSummary'  customize = (ProgressUpdateStreamSummary <<< customize) { "ProgressUpdateStreamName": Nothing }
 
 
 
@@ -962,7 +961,7 @@ newtype PutResourceAttributesRequest = PutResourceAttributesRequest
   { "ProgressUpdateStream" :: (ProgressUpdateStream)
   , "MigrationTaskName" :: (MigrationTaskName)
   , "ResourceAttributeList" :: (ResourceAttributeList)
-  , "DryRun" :: NullOrUndefined (DryRun)
+  , "DryRun" :: Maybe (DryRun)
   }
 derive instance newtypePutResourceAttributesRequest :: Newtype PutResourceAttributesRequest _
 derive instance repGenericPutResourceAttributesRequest :: Generic PutResourceAttributesRequest _
@@ -972,12 +971,12 @@ instance encodePutResourceAttributesRequest :: Encode PutResourceAttributesReque
 
 -- | Constructs PutResourceAttributesRequest from required parameters
 newPutResourceAttributesRequest :: MigrationTaskName -> ProgressUpdateStream -> ResourceAttributeList -> PutResourceAttributesRequest
-newPutResourceAttributesRequest _MigrationTaskName _ProgressUpdateStream _ResourceAttributeList = PutResourceAttributesRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "ResourceAttributeList": _ResourceAttributeList, "DryRun": (NullOrUndefined Nothing) }
+newPutResourceAttributesRequest _MigrationTaskName _ProgressUpdateStream _ResourceAttributeList = PutResourceAttributesRequest { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "ResourceAttributeList": _ResourceAttributeList, "DryRun": Nothing }
 
 -- | Constructs PutResourceAttributesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutResourceAttributesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ResourceAttributeList -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ResourceAttributeList" :: (ResourceAttributeList) , "DryRun" :: NullOrUndefined (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ResourceAttributeList" :: (ResourceAttributeList) , "DryRun" :: NullOrUndefined (DryRun) } ) -> PutResourceAttributesRequest
-newPutResourceAttributesRequest' _MigrationTaskName _ProgressUpdateStream _ResourceAttributeList customize = (PutResourceAttributesRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "ResourceAttributeList": _ResourceAttributeList, "DryRun": (NullOrUndefined Nothing) }
+newPutResourceAttributesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ResourceAttributeList -> ( { "ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ResourceAttributeList" :: (ResourceAttributeList) , "DryRun" :: Maybe (DryRun) } -> {"ProgressUpdateStream" :: (ProgressUpdateStream) , "MigrationTaskName" :: (MigrationTaskName) , "ResourceAttributeList" :: (ResourceAttributeList) , "DryRun" :: Maybe (DryRun) } ) -> PutResourceAttributesRequest
+newPutResourceAttributesRequest' _MigrationTaskName _ProgressUpdateStream _ResourceAttributeList customize = (PutResourceAttributesRequest <<< customize) { "MigrationTaskName": _MigrationTaskName, "ProgressUpdateStream": _ProgressUpdateStream, "ResourceAttributeList": _ResourceAttributeList, "DryRun": Nothing }
 
 
 
@@ -1050,7 +1049,7 @@ instance encodeResourceName :: Encode ResourceName where encode = genericEncode 
 
 -- | <p>Exception raised when the request references a resource (ADS configuration, update stream, migration task, etc.) that does not exist in ADS (Application Discovery Service) or in Migration Hub's repository.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -1060,18 +1059,18 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "Message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
 newtype ServiceUnavailableException = ServiceUnavailableException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeServiceUnavailableException :: Newtype ServiceUnavailableException _
 derive instance repGenericServiceUnavailableException :: Generic ServiceUnavailableException _
@@ -1081,12 +1080,12 @@ instance encodeServiceUnavailableException :: Encode ServiceUnavailableException
 
 -- | Constructs ServiceUnavailableException from required parameters
 newServiceUnavailableException :: ServiceUnavailableException
-newServiceUnavailableException  = ServiceUnavailableException { "Message": (NullOrUndefined Nothing) }
+newServiceUnavailableException  = ServiceUnavailableException { "Message": Nothing }
 
 -- | Constructs ServiceUnavailableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceUnavailableException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ServiceUnavailableException
-newServiceUnavailableException'  customize = (ServiceUnavailableException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newServiceUnavailableException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ServiceUnavailableException
+newServiceUnavailableException'  customize = (ServiceUnavailableException <<< customize) { "Message": Nothing }
 
 
 
@@ -1111,8 +1110,8 @@ instance encodeStatusDetail :: Encode StatusDetail where encode = genericEncode 
 -- | <p>Task object encapsulating task information.</p>
 newtype Task = Task 
   { "Status" :: (Status)
-  , "StatusDetail" :: NullOrUndefined (StatusDetail)
-  , "ProgressPercent" :: NullOrUndefined (ProgressPercent)
+  , "StatusDetail" :: Maybe (StatusDetail)
+  , "ProgressPercent" :: Maybe (ProgressPercent)
   }
 derive instance newtypeTask :: Newtype Task _
 derive instance repGenericTask :: Generic Task _
@@ -1122,12 +1121,12 @@ instance encodeTask :: Encode Task where encode = genericEncode options
 
 -- | Constructs Task from required parameters
 newTask :: Status -> Task
-newTask _Status = Task { "Status": _Status, "ProgressPercent": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing) }
+newTask _Status = Task { "Status": _Status, "ProgressPercent": Nothing, "StatusDetail": Nothing }
 
 -- | Constructs Task's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTask' :: Status -> ( { "Status" :: (Status) , "StatusDetail" :: NullOrUndefined (StatusDetail) , "ProgressPercent" :: NullOrUndefined (ProgressPercent) } -> {"Status" :: (Status) , "StatusDetail" :: NullOrUndefined (StatusDetail) , "ProgressPercent" :: NullOrUndefined (ProgressPercent) } ) -> Task
-newTask' _Status customize = (Task <<< customize) { "Status": _Status, "ProgressPercent": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing) }
+newTask' :: Status -> ( { "Status" :: (Status) , "StatusDetail" :: Maybe (StatusDetail) , "ProgressPercent" :: Maybe (ProgressPercent) } -> {"Status" :: (Status) , "StatusDetail" :: Maybe (StatusDetail) , "ProgressPercent" :: Maybe (ProgressPercent) } ) -> Task
+newTask' _Status customize = (Task <<< customize) { "Status": _Status, "ProgressPercent": Nothing, "StatusDetail": Nothing }
 
 
 
@@ -1142,7 +1141,7 @@ instance encodeToken :: Encode Token where encode = genericEncode options
 
 -- | <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to "true".</p>
 newtype UnauthorizedOperation = UnauthorizedOperation 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnauthorizedOperation :: Newtype UnauthorizedOperation _
 derive instance repGenericUnauthorizedOperation :: Generic UnauthorizedOperation _
@@ -1152,12 +1151,12 @@ instance encodeUnauthorizedOperation :: Encode UnauthorizedOperation where encod
 
 -- | Constructs UnauthorizedOperation from required parameters
 newUnauthorizedOperation :: UnauthorizedOperation
-newUnauthorizedOperation  = UnauthorizedOperation { "Message": (NullOrUndefined Nothing) }
+newUnauthorizedOperation  = UnauthorizedOperation { "Message": Nothing }
 
 -- | Constructs UnauthorizedOperation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnauthorizedOperation' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> UnauthorizedOperation
-newUnauthorizedOperation'  customize = (UnauthorizedOperation <<< customize) { "Message": (NullOrUndefined Nothing) }
+newUnauthorizedOperation' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> UnauthorizedOperation
+newUnauthorizedOperation'  customize = (UnauthorizedOperation <<< customize) { "Message": Nothing }
 
 
 

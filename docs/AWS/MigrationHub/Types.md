@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AccessDeniedException
-  = AccessDeniedException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = AccessDeniedException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>You do not have sufficient access to perform this action.</p>
@@ -35,7 +35,7 @@ Constructs AccessDeniedException from required parameters
 #### `newAccessDeniedException'`
 
 ``` purescript
-newAccessDeniedException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> AccessDeniedException
+newAccessDeniedException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> AccessDeniedException
 ```
 
 Constructs AccessDeniedException's fields from required parameters
@@ -76,7 +76,7 @@ Encode ApplicationStatus
 
 ``` purescript
 newtype AssociateCreatedArtifactRequest
-  = AssociateCreatedArtifactRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifact" :: CreatedArtifact, "DryRun" :: NullOrUndefined (DryRun) }
+  = AssociateCreatedArtifactRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifact" :: CreatedArtifact, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -99,7 +99,7 @@ Constructs AssociateCreatedArtifactRequest from required parameters
 #### `newAssociateCreatedArtifactRequest'`
 
 ``` purescript
-newAssociateCreatedArtifactRequest' :: CreatedArtifact -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifact" :: CreatedArtifact, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifact" :: CreatedArtifact, "DryRun" :: NullOrUndefined (DryRun) }) -> AssociateCreatedArtifactRequest
+newAssociateCreatedArtifactRequest' :: CreatedArtifact -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifact" :: CreatedArtifact, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifact" :: CreatedArtifact, "DryRun" :: Maybe (DryRun) }) -> AssociateCreatedArtifactRequest
 ```
 
 Constructs AssociateCreatedArtifactRequest's fields from required parameters
@@ -124,7 +124,7 @@ Encode AssociateCreatedArtifactResult
 
 ``` purescript
 newtype AssociateDiscoveredResourceRequest
-  = AssociateDiscoveredResourceRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DiscoveredResource" :: DiscoveredResource, "DryRun" :: NullOrUndefined (DryRun) }
+  = AssociateDiscoveredResourceRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DiscoveredResource" :: DiscoveredResource, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -147,7 +147,7 @@ Constructs AssociateDiscoveredResourceRequest from required parameters
 #### `newAssociateDiscoveredResourceRequest'`
 
 ``` purescript
-newAssociateDiscoveredResourceRequest' :: DiscoveredResource -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DiscoveredResource" :: DiscoveredResource, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DiscoveredResource" :: DiscoveredResource, "DryRun" :: NullOrUndefined (DryRun) }) -> AssociateDiscoveredResourceRequest
+newAssociateDiscoveredResourceRequest' :: DiscoveredResource -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DiscoveredResource" :: DiscoveredResource, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DiscoveredResource" :: DiscoveredResource, "DryRun" :: Maybe (DryRun) }) -> AssociateDiscoveredResourceRequest
 ```
 
 Constructs AssociateDiscoveredResourceRequest's fields from required parameters
@@ -188,7 +188,7 @@ Encode ConfigurationId
 
 ``` purescript
 newtype CreateProgressUpdateStreamRequest
-  = CreateProgressUpdateStreamRequest { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: NullOrUndefined (DryRun) }
+  = CreateProgressUpdateStreamRequest { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -211,7 +211,7 @@ Constructs CreateProgressUpdateStreamRequest from required parameters
 #### `newCreateProgressUpdateStreamRequest'`
 
 ``` purescript
-newCreateProgressUpdateStreamRequest' :: ProgressUpdateStream -> ({ "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: NullOrUndefined (DryRun) }) -> CreateProgressUpdateStreamRequest
+newCreateProgressUpdateStreamRequest' :: ProgressUpdateStream -> ({ "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: Maybe (DryRun) }) -> CreateProgressUpdateStreamRequest
 ```
 
 Constructs CreateProgressUpdateStreamRequest's fields from required parameters
@@ -236,7 +236,7 @@ Encode CreateProgressUpdateStreamResult
 
 ``` purescript
 newtype CreatedArtifact
-  = CreatedArtifact { "Name" :: CreatedArtifactName, "Description" :: NullOrUndefined (CreatedArtifactDescription) }
+  = CreatedArtifact { "Name" :: CreatedArtifactName, "Description" :: Maybe (CreatedArtifactDescription) }
 ```
 
 <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).</p>
@@ -261,7 +261,7 @@ Constructs CreatedArtifact from required parameters
 #### `newCreatedArtifact'`
 
 ``` purescript
-newCreatedArtifact' :: CreatedArtifactName -> ({ "Name" :: CreatedArtifactName, "Description" :: NullOrUndefined (CreatedArtifactDescription) } -> { "Name" :: CreatedArtifactName, "Description" :: NullOrUndefined (CreatedArtifactDescription) }) -> CreatedArtifact
+newCreatedArtifact' :: CreatedArtifactName -> ({ "Name" :: CreatedArtifactName, "Description" :: Maybe (CreatedArtifactDescription) } -> { "Name" :: CreatedArtifactName, "Description" :: Maybe (CreatedArtifactDescription) }) -> CreatedArtifact
 ```
 
 Constructs CreatedArtifact's fields from required parameters
@@ -318,7 +318,7 @@ Encode CreatedArtifactName
 
 ``` purescript
 newtype DeleteProgressUpdateStreamRequest
-  = DeleteProgressUpdateStreamRequest { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: NullOrUndefined (DryRun) }
+  = DeleteProgressUpdateStreamRequest { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs DeleteProgressUpdateStreamRequest from required parameters
 #### `newDeleteProgressUpdateStreamRequest'`
 
 ``` purescript
-newDeleteProgressUpdateStreamRequest' :: ProgressUpdateStream -> ({ "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: NullOrUndefined (DryRun) }) -> DeleteProgressUpdateStreamRequest
+newDeleteProgressUpdateStreamRequest' :: ProgressUpdateStream -> ({ "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStreamName" :: ProgressUpdateStream, "DryRun" :: Maybe (DryRun) }) -> DeleteProgressUpdateStreamRequest
 ```
 
 Constructs DeleteProgressUpdateStreamRequest's fields from required parameters
@@ -398,7 +398,7 @@ Constructs DescribeApplicationStateRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeApplicationStateResult
-  = DescribeApplicationStateResult { "ApplicationStatus" :: NullOrUndefined (ApplicationStatus), "LastUpdatedTime" :: NullOrUndefined (UpdateDateTime) }
+  = DescribeApplicationStateResult { "ApplicationStatus" :: Maybe (ApplicationStatus), "LastUpdatedTime" :: Maybe (UpdateDateTime) }
 ```
 
 ##### Instances
@@ -421,7 +421,7 @@ Constructs DescribeApplicationStateResult from required parameters
 #### `newDescribeApplicationStateResult'`
 
 ``` purescript
-newDescribeApplicationStateResult' :: ({ "ApplicationStatus" :: NullOrUndefined (ApplicationStatus), "LastUpdatedTime" :: NullOrUndefined (UpdateDateTime) } -> { "ApplicationStatus" :: NullOrUndefined (ApplicationStatus), "LastUpdatedTime" :: NullOrUndefined (UpdateDateTime) }) -> DescribeApplicationStateResult
+newDescribeApplicationStateResult' :: ({ "ApplicationStatus" :: Maybe (ApplicationStatus), "LastUpdatedTime" :: Maybe (UpdateDateTime) } -> { "ApplicationStatus" :: Maybe (ApplicationStatus), "LastUpdatedTime" :: Maybe (UpdateDateTime) }) -> DescribeApplicationStateResult
 ```
 
 Constructs DescribeApplicationStateResult's fields from required parameters
@@ -462,7 +462,7 @@ Constructs DescribeMigrationTaskRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeMigrationTaskResult
-  = DescribeMigrationTaskResult { "MigrationTask" :: NullOrUndefined (MigrationTask) }
+  = DescribeMigrationTaskResult { "MigrationTask" :: Maybe (MigrationTask) }
 ```
 
 ##### Instances
@@ -485,7 +485,7 @@ Constructs DescribeMigrationTaskResult from required parameters
 #### `newDescribeMigrationTaskResult'`
 
 ``` purescript
-newDescribeMigrationTaskResult' :: ({ "MigrationTask" :: NullOrUndefined (MigrationTask) } -> { "MigrationTask" :: NullOrUndefined (MigrationTask) }) -> DescribeMigrationTaskResult
+newDescribeMigrationTaskResult' :: ({ "MigrationTask" :: Maybe (MigrationTask) } -> { "MigrationTask" :: Maybe (MigrationTask) }) -> DescribeMigrationTaskResult
 ```
 
 Constructs DescribeMigrationTaskResult's fields from required parameters
@@ -494,7 +494,7 @@ Constructs DescribeMigrationTaskResult's fields from required parameters
 
 ``` purescript
 newtype DisassociateCreatedArtifactRequest
-  = DisassociateCreatedArtifactRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifactName" :: CreatedArtifactName, "DryRun" :: NullOrUndefined (DryRun) }
+  = DisassociateCreatedArtifactRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifactName" :: CreatedArtifactName, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -517,7 +517,7 @@ Constructs DisassociateCreatedArtifactRequest from required parameters
 #### `newDisassociateCreatedArtifactRequest'`
 
 ``` purescript
-newDisassociateCreatedArtifactRequest' :: CreatedArtifactName -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifactName" :: CreatedArtifactName, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifactName" :: CreatedArtifactName, "DryRun" :: NullOrUndefined (DryRun) }) -> DisassociateCreatedArtifactRequest
+newDisassociateCreatedArtifactRequest' :: CreatedArtifactName -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifactName" :: CreatedArtifactName, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "CreatedArtifactName" :: CreatedArtifactName, "DryRun" :: Maybe (DryRun) }) -> DisassociateCreatedArtifactRequest
 ```
 
 Constructs DisassociateCreatedArtifactRequest's fields from required parameters
@@ -542,7 +542,7 @@ Encode DisassociateCreatedArtifactResult
 
 ``` purescript
 newtype DisassociateDiscoveredResourceRequest
-  = DisassociateDiscoveredResourceRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ConfigurationId" :: ConfigurationId, "DryRun" :: NullOrUndefined (DryRun) }
+  = DisassociateDiscoveredResourceRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ConfigurationId" :: ConfigurationId, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -565,7 +565,7 @@ Constructs DisassociateDiscoveredResourceRequest from required parameters
 #### `newDisassociateDiscoveredResourceRequest'`
 
 ``` purescript
-newDisassociateDiscoveredResourceRequest' :: ConfigurationId -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ConfigurationId" :: ConfigurationId, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ConfigurationId" :: ConfigurationId, "DryRun" :: NullOrUndefined (DryRun) }) -> DisassociateDiscoveredResourceRequest
+newDisassociateDiscoveredResourceRequest' :: ConfigurationId -> MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ConfigurationId" :: ConfigurationId, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ConfigurationId" :: ConfigurationId, "DryRun" :: Maybe (DryRun) }) -> DisassociateDiscoveredResourceRequest
 ```
 
 Constructs DisassociateDiscoveredResourceRequest's fields from required parameters
@@ -590,7 +590,7 @@ Encode DisassociateDiscoveredResourceResult
 
 ``` purescript
 newtype DiscoveredResource
-  = DiscoveredResource { "ConfigurationId" :: ConfigurationId, "Description" :: NullOrUndefined (DiscoveredResourceDescription) }
+  = DiscoveredResource { "ConfigurationId" :: ConfigurationId, "Description" :: Maybe (DiscoveredResourceDescription) }
 ```
 
 <p>Object representing the on-premises resource being migrated.</p>
@@ -615,7 +615,7 @@ Constructs DiscoveredResource from required parameters
 #### `newDiscoveredResource'`
 
 ``` purescript
-newDiscoveredResource' :: ConfigurationId -> ({ "ConfigurationId" :: ConfigurationId, "Description" :: NullOrUndefined (DiscoveredResourceDescription) } -> { "ConfigurationId" :: ConfigurationId, "Description" :: NullOrUndefined (DiscoveredResourceDescription) }) -> DiscoveredResource
+newDiscoveredResource' :: ConfigurationId -> ({ "ConfigurationId" :: ConfigurationId, "Description" :: Maybe (DiscoveredResourceDescription) } -> { "ConfigurationId" :: ConfigurationId, "Description" :: Maybe (DiscoveredResourceDescription) }) -> DiscoveredResource
 ```
 
 Constructs DiscoveredResource's fields from required parameters
@@ -672,7 +672,7 @@ Encode DryRun
 
 ``` purescript
 newtype DryRunOperation
-  = DryRunOperation { "Message" :: NullOrUndefined (ErrorMessage) }
+  = DryRunOperation { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to "true".</p>
@@ -697,7 +697,7 @@ Constructs DryRunOperation from required parameters
 #### `newDryRunOperation'`
 
 ``` purescript
-newDryRunOperation' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> DryRunOperation
+newDryRunOperation' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> DryRunOperation
 ```
 
 Constructs DryRunOperation's fields from required parameters
@@ -722,7 +722,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype ImportMigrationTaskRequest
-  = ImportMigrationTaskRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DryRun" :: NullOrUndefined (DryRun) }
+  = ImportMigrationTaskRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -745,7 +745,7 @@ Constructs ImportMigrationTaskRequest from required parameters
 #### `newImportMigrationTaskRequest'`
 
 ``` purescript
-newImportMigrationTaskRequest' :: MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DryRun" :: NullOrUndefined (DryRun) }) -> ImportMigrationTaskRequest
+newImportMigrationTaskRequest' :: MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "DryRun" :: Maybe (DryRun) }) -> ImportMigrationTaskRequest
 ```
 
 Constructs ImportMigrationTaskRequest's fields from required parameters
@@ -770,7 +770,7 @@ Encode ImportMigrationTaskResult
 
 ``` purescript
 newtype InternalServerError
-  = InternalServerError { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServerError { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
@@ -795,7 +795,7 @@ Constructs InternalServerError from required parameters
 #### `newInternalServerError'`
 
 ``` purescript
-newInternalServerError' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServerError
+newInternalServerError' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InternalServerError
 ```
 
 Constructs InternalServerError's fields from required parameters
@@ -804,7 +804,7 @@ Constructs InternalServerError's fields from required parameters
 
 ``` purescript
 newtype InvalidInputException
-  = InvalidInputException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidInputException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
@@ -829,7 +829,7 @@ Constructs InvalidInputException from required parameters
 #### `newInvalidInputException'`
 
 ``` purescript
-newInvalidInputException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidInputException
+newInvalidInputException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidInputException
 ```
 
 Constructs InvalidInputException's fields from required parameters
@@ -854,7 +854,7 @@ Encode LatestResourceAttributeList
 
 ``` purescript
 newtype ListCreatedArtifactsRequest
-  = ListCreatedArtifactsRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResultsCreatedArtifacts) }
+  = ListCreatedArtifactsRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResultsCreatedArtifacts) }
 ```
 
 ##### Instances
@@ -877,7 +877,7 @@ Constructs ListCreatedArtifactsRequest from required parameters
 #### `newListCreatedArtifactsRequest'`
 
 ``` purescript
-newListCreatedArtifactsRequest' :: MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResultsCreatedArtifacts) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResultsCreatedArtifacts) }) -> ListCreatedArtifactsRequest
+newListCreatedArtifactsRequest' :: MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResultsCreatedArtifacts) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResultsCreatedArtifacts) }) -> ListCreatedArtifactsRequest
 ```
 
 Constructs ListCreatedArtifactsRequest's fields from required parameters
@@ -886,7 +886,7 @@ Constructs ListCreatedArtifactsRequest's fields from required parameters
 
 ``` purescript
 newtype ListCreatedArtifactsResult
-  = ListCreatedArtifactsResult { "NextToken" :: NullOrUndefined (Token), "CreatedArtifactList" :: NullOrUndefined (CreatedArtifactList) }
+  = ListCreatedArtifactsResult { "NextToken" :: Maybe (Token), "CreatedArtifactList" :: Maybe (CreatedArtifactList) }
 ```
 
 ##### Instances
@@ -909,7 +909,7 @@ Constructs ListCreatedArtifactsResult from required parameters
 #### `newListCreatedArtifactsResult'`
 
 ``` purescript
-newListCreatedArtifactsResult' :: ({ "NextToken" :: NullOrUndefined (Token), "CreatedArtifactList" :: NullOrUndefined (CreatedArtifactList) } -> { "NextToken" :: NullOrUndefined (Token), "CreatedArtifactList" :: NullOrUndefined (CreatedArtifactList) }) -> ListCreatedArtifactsResult
+newListCreatedArtifactsResult' :: ({ "NextToken" :: Maybe (Token), "CreatedArtifactList" :: Maybe (CreatedArtifactList) } -> { "NextToken" :: Maybe (Token), "CreatedArtifactList" :: Maybe (CreatedArtifactList) }) -> ListCreatedArtifactsResult
 ```
 
 Constructs ListCreatedArtifactsResult's fields from required parameters
@@ -918,7 +918,7 @@ Constructs ListCreatedArtifactsResult's fields from required parameters
 
 ``` purescript
 newtype ListDiscoveredResourcesRequest
-  = ListDiscoveredResourcesRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResultsResources) }
+  = ListDiscoveredResourcesRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResultsResources) }
 ```
 
 ##### Instances
@@ -941,7 +941,7 @@ Constructs ListDiscoveredResourcesRequest from required parameters
 #### `newListDiscoveredResourcesRequest'`
 
 ``` purescript
-newListDiscoveredResourcesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResultsResources) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResultsResources) }) -> ListDiscoveredResourcesRequest
+newListDiscoveredResourcesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResultsResources) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResultsResources) }) -> ListDiscoveredResourcesRequest
 ```
 
 Constructs ListDiscoveredResourcesRequest's fields from required parameters
@@ -950,7 +950,7 @@ Constructs ListDiscoveredResourcesRequest's fields from required parameters
 
 ``` purescript
 newtype ListDiscoveredResourcesResult
-  = ListDiscoveredResourcesResult { "NextToken" :: NullOrUndefined (Token), "DiscoveredResourceList" :: NullOrUndefined (DiscoveredResourceList) }
+  = ListDiscoveredResourcesResult { "NextToken" :: Maybe (Token), "DiscoveredResourceList" :: Maybe (DiscoveredResourceList) }
 ```
 
 ##### Instances
@@ -973,7 +973,7 @@ Constructs ListDiscoveredResourcesResult from required parameters
 #### `newListDiscoveredResourcesResult'`
 
 ``` purescript
-newListDiscoveredResourcesResult' :: ({ "NextToken" :: NullOrUndefined (Token), "DiscoveredResourceList" :: NullOrUndefined (DiscoveredResourceList) } -> { "NextToken" :: NullOrUndefined (Token), "DiscoveredResourceList" :: NullOrUndefined (DiscoveredResourceList) }) -> ListDiscoveredResourcesResult
+newListDiscoveredResourcesResult' :: ({ "NextToken" :: Maybe (Token), "DiscoveredResourceList" :: Maybe (DiscoveredResourceList) } -> { "NextToken" :: Maybe (Token), "DiscoveredResourceList" :: Maybe (DiscoveredResourceList) }) -> ListDiscoveredResourcesResult
 ```
 
 Constructs ListDiscoveredResourcesResult's fields from required parameters
@@ -982,7 +982,7 @@ Constructs ListDiscoveredResourcesResult's fields from required parameters
 
 ``` purescript
 newtype ListMigrationTasksRequest
-  = ListMigrationTasksRequest { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResults), "ResourceName" :: NullOrUndefined (ResourceName) }
+  = ListMigrationTasksRequest { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResults), "ResourceName" :: Maybe (ResourceName) }
 ```
 
 ##### Instances
@@ -1005,7 +1005,7 @@ Constructs ListMigrationTasksRequest from required parameters
 #### `newListMigrationTasksRequest'`
 
 ``` purescript
-newListMigrationTasksRequest' :: ({ "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResults), "ResourceName" :: NullOrUndefined (ResourceName) } -> { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResults), "ResourceName" :: NullOrUndefined (ResourceName) }) -> ListMigrationTasksRequest
+newListMigrationTasksRequest' :: ({ "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResults), "ResourceName" :: Maybe (ResourceName) } -> { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResults), "ResourceName" :: Maybe (ResourceName) }) -> ListMigrationTasksRequest
 ```
 
 Constructs ListMigrationTasksRequest's fields from required parameters
@@ -1014,7 +1014,7 @@ Constructs ListMigrationTasksRequest's fields from required parameters
 
 ``` purescript
 newtype ListMigrationTasksResult
-  = ListMigrationTasksResult { "NextToken" :: NullOrUndefined (Token), "MigrationTaskSummaryList" :: NullOrUndefined (MigrationTaskSummaryList) }
+  = ListMigrationTasksResult { "NextToken" :: Maybe (Token), "MigrationTaskSummaryList" :: Maybe (MigrationTaskSummaryList) }
 ```
 
 ##### Instances
@@ -1037,7 +1037,7 @@ Constructs ListMigrationTasksResult from required parameters
 #### `newListMigrationTasksResult'`
 
 ``` purescript
-newListMigrationTasksResult' :: ({ "NextToken" :: NullOrUndefined (Token), "MigrationTaskSummaryList" :: NullOrUndefined (MigrationTaskSummaryList) } -> { "NextToken" :: NullOrUndefined (Token), "MigrationTaskSummaryList" :: NullOrUndefined (MigrationTaskSummaryList) }) -> ListMigrationTasksResult
+newListMigrationTasksResult' :: ({ "NextToken" :: Maybe (Token), "MigrationTaskSummaryList" :: Maybe (MigrationTaskSummaryList) } -> { "NextToken" :: Maybe (Token), "MigrationTaskSummaryList" :: Maybe (MigrationTaskSummaryList) }) -> ListMigrationTasksResult
 ```
 
 Constructs ListMigrationTasksResult's fields from required parameters
@@ -1046,7 +1046,7 @@ Constructs ListMigrationTasksResult's fields from required parameters
 
 ``` purescript
 newtype ListProgressUpdateStreamsRequest
-  = ListProgressUpdateStreamsRequest { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResults) }
+  = ListProgressUpdateStreamsRequest { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1069,7 +1069,7 @@ Constructs ListProgressUpdateStreamsRequest from required parameters
 #### `newListProgressUpdateStreamsRequest'`
 
 ``` purescript
-newListProgressUpdateStreamsRequest' :: ({ "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResults) } -> { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxResults) }) -> ListProgressUpdateStreamsRequest
+newListProgressUpdateStreamsRequest' :: ({ "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResults) } -> { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxResults) }) -> ListProgressUpdateStreamsRequest
 ```
 
 Constructs ListProgressUpdateStreamsRequest's fields from required parameters
@@ -1078,7 +1078,7 @@ Constructs ListProgressUpdateStreamsRequest's fields from required parameters
 
 ``` purescript
 newtype ListProgressUpdateStreamsResult
-  = ListProgressUpdateStreamsResult { "ProgressUpdateStreamSummaryList" :: NullOrUndefined (ProgressUpdateStreamSummaryList), "NextToken" :: NullOrUndefined (Token) }
+  = ListProgressUpdateStreamsResult { "ProgressUpdateStreamSummaryList" :: Maybe (ProgressUpdateStreamSummaryList), "NextToken" :: Maybe (Token) }
 ```
 
 ##### Instances
@@ -1101,7 +1101,7 @@ Constructs ListProgressUpdateStreamsResult from required parameters
 #### `newListProgressUpdateStreamsResult'`
 
 ``` purescript
-newListProgressUpdateStreamsResult' :: ({ "ProgressUpdateStreamSummaryList" :: NullOrUndefined (ProgressUpdateStreamSummaryList), "NextToken" :: NullOrUndefined (Token) } -> { "ProgressUpdateStreamSummaryList" :: NullOrUndefined (ProgressUpdateStreamSummaryList), "NextToken" :: NullOrUndefined (Token) }) -> ListProgressUpdateStreamsResult
+newListProgressUpdateStreamsResult' :: ({ "ProgressUpdateStreamSummaryList" :: Maybe (ProgressUpdateStreamSummaryList), "NextToken" :: Maybe (Token) } -> { "ProgressUpdateStreamSummaryList" :: Maybe (ProgressUpdateStreamSummaryList), "NextToken" :: Maybe (Token) }) -> ListProgressUpdateStreamsResult
 ```
 
 Constructs ListProgressUpdateStreamsResult's fields from required parameters
@@ -1158,7 +1158,7 @@ Encode MaxResultsResources
 
 ``` purescript
 newtype MigrationTask
-  = MigrationTask { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream), "MigrationTaskName" :: NullOrUndefined (MigrationTaskName), "Task" :: NullOrUndefined (Task), "UpdateDateTime" :: NullOrUndefined (UpdateDateTime), "ResourceAttributeList" :: NullOrUndefined (LatestResourceAttributeList) }
+  = MigrationTask { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream), "MigrationTaskName" :: Maybe (MigrationTaskName), "Task" :: Maybe (Task), "UpdateDateTime" :: Maybe (UpdateDateTime), "ResourceAttributeList" :: Maybe (LatestResourceAttributeList) }
 ```
 
 <p>Represents a migration task in a migration tool.</p>
@@ -1183,7 +1183,7 @@ Constructs MigrationTask from required parameters
 #### `newMigrationTask'`
 
 ``` purescript
-newMigrationTask' :: ({ "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream), "MigrationTaskName" :: NullOrUndefined (MigrationTaskName), "Task" :: NullOrUndefined (Task), "UpdateDateTime" :: NullOrUndefined (UpdateDateTime), "ResourceAttributeList" :: NullOrUndefined (LatestResourceAttributeList) } -> { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream), "MigrationTaskName" :: NullOrUndefined (MigrationTaskName), "Task" :: NullOrUndefined (Task), "UpdateDateTime" :: NullOrUndefined (UpdateDateTime), "ResourceAttributeList" :: NullOrUndefined (LatestResourceAttributeList) }) -> MigrationTask
+newMigrationTask' :: ({ "ProgressUpdateStream" :: Maybe (ProgressUpdateStream), "MigrationTaskName" :: Maybe (MigrationTaskName), "Task" :: Maybe (Task), "UpdateDateTime" :: Maybe (UpdateDateTime), "ResourceAttributeList" :: Maybe (LatestResourceAttributeList) } -> { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream), "MigrationTaskName" :: Maybe (MigrationTaskName), "Task" :: Maybe (Task), "UpdateDateTime" :: Maybe (UpdateDateTime), "ResourceAttributeList" :: Maybe (LatestResourceAttributeList) }) -> MigrationTask
 ```
 
 Constructs MigrationTask's fields from required parameters
@@ -1208,7 +1208,7 @@ Encode MigrationTaskName
 
 ``` purescript
 newtype MigrationTaskSummary
-  = MigrationTaskSummary { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream), "MigrationTaskName" :: NullOrUndefined (MigrationTaskName), "Status" :: NullOrUndefined (Status), "ProgressPercent" :: NullOrUndefined (ProgressPercent), "StatusDetail" :: NullOrUndefined (StatusDetail), "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) }
+  = MigrationTaskSummary { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream), "MigrationTaskName" :: Maybe (MigrationTaskName), "Status" :: Maybe (Status), "ProgressPercent" :: Maybe (ProgressPercent), "StatusDetail" :: Maybe (StatusDetail), "UpdateDateTime" :: Maybe (UpdateDateTime) }
 ```
 
 <p>MigrationTaskSummary includes <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and <code>UpdateDateTime</code> for each task.</p>
@@ -1233,7 +1233,7 @@ Constructs MigrationTaskSummary from required parameters
 #### `newMigrationTaskSummary'`
 
 ``` purescript
-newMigrationTaskSummary' :: ({ "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream), "MigrationTaskName" :: NullOrUndefined (MigrationTaskName), "Status" :: NullOrUndefined (Status), "ProgressPercent" :: NullOrUndefined (ProgressPercent), "StatusDetail" :: NullOrUndefined (StatusDetail), "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) } -> { "ProgressUpdateStream" :: NullOrUndefined (ProgressUpdateStream), "MigrationTaskName" :: NullOrUndefined (MigrationTaskName), "Status" :: NullOrUndefined (Status), "ProgressPercent" :: NullOrUndefined (ProgressPercent), "StatusDetail" :: NullOrUndefined (StatusDetail), "UpdateDateTime" :: NullOrUndefined (UpdateDateTime) }) -> MigrationTaskSummary
+newMigrationTaskSummary' :: ({ "ProgressUpdateStream" :: Maybe (ProgressUpdateStream), "MigrationTaskName" :: Maybe (MigrationTaskName), "Status" :: Maybe (Status), "ProgressPercent" :: Maybe (ProgressPercent), "StatusDetail" :: Maybe (StatusDetail), "UpdateDateTime" :: Maybe (UpdateDateTime) } -> { "ProgressUpdateStream" :: Maybe (ProgressUpdateStream), "MigrationTaskName" :: Maybe (MigrationTaskName), "Status" :: Maybe (Status), "ProgressPercent" :: Maybe (ProgressPercent), "StatusDetail" :: Maybe (StatusDetail), "UpdateDateTime" :: Maybe (UpdateDateTime) }) -> MigrationTaskSummary
 ```
 
 Constructs MigrationTaskSummary's fields from required parameters
@@ -1274,7 +1274,7 @@ Encode NextUpdateSeconds
 
 ``` purescript
 newtype NotifyApplicationStateRequest
-  = NotifyApplicationStateRequest { "ApplicationId" :: ApplicationId, "Status" :: ApplicationStatus, "DryRun" :: NullOrUndefined (DryRun) }
+  = NotifyApplicationStateRequest { "ApplicationId" :: ApplicationId, "Status" :: ApplicationStatus, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -1297,7 +1297,7 @@ Constructs NotifyApplicationStateRequest from required parameters
 #### `newNotifyApplicationStateRequest'`
 
 ``` purescript
-newNotifyApplicationStateRequest' :: ApplicationId -> ApplicationStatus -> ({ "ApplicationId" :: ApplicationId, "Status" :: ApplicationStatus, "DryRun" :: NullOrUndefined (DryRun) } -> { "ApplicationId" :: ApplicationId, "Status" :: ApplicationStatus, "DryRun" :: NullOrUndefined (DryRun) }) -> NotifyApplicationStateRequest
+newNotifyApplicationStateRequest' :: ApplicationId -> ApplicationStatus -> ({ "ApplicationId" :: ApplicationId, "Status" :: ApplicationStatus, "DryRun" :: Maybe (DryRun) } -> { "ApplicationId" :: ApplicationId, "Status" :: ApplicationStatus, "DryRun" :: Maybe (DryRun) }) -> NotifyApplicationStateRequest
 ```
 
 Constructs NotifyApplicationStateRequest's fields from required parameters
@@ -1322,7 +1322,7 @@ Encode NotifyApplicationStateResult
 
 ``` purescript
 newtype NotifyMigrationTaskStateRequest
-  = NotifyMigrationTaskStateRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "Task" :: Task, "UpdateDateTime" :: UpdateDateTime, "NextUpdateSeconds" :: NextUpdateSeconds, "DryRun" :: NullOrUndefined (DryRun) }
+  = NotifyMigrationTaskStateRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "Task" :: Task, "UpdateDateTime" :: UpdateDateTime, "NextUpdateSeconds" :: NextUpdateSeconds, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -1345,7 +1345,7 @@ Constructs NotifyMigrationTaskStateRequest from required parameters
 #### `newNotifyMigrationTaskStateRequest'`
 
 ``` purescript
-newNotifyMigrationTaskStateRequest' :: MigrationTaskName -> NextUpdateSeconds -> ProgressUpdateStream -> Task -> UpdateDateTime -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "Task" :: Task, "UpdateDateTime" :: UpdateDateTime, "NextUpdateSeconds" :: NextUpdateSeconds, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "Task" :: Task, "UpdateDateTime" :: UpdateDateTime, "NextUpdateSeconds" :: NextUpdateSeconds, "DryRun" :: NullOrUndefined (DryRun) }) -> NotifyMigrationTaskStateRequest
+newNotifyMigrationTaskStateRequest' :: MigrationTaskName -> NextUpdateSeconds -> ProgressUpdateStream -> Task -> UpdateDateTime -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "Task" :: Task, "UpdateDateTime" :: UpdateDateTime, "NextUpdateSeconds" :: NextUpdateSeconds, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "Task" :: Task, "UpdateDateTime" :: UpdateDateTime, "NextUpdateSeconds" :: NextUpdateSeconds, "DryRun" :: Maybe (DryRun) }) -> NotifyMigrationTaskStateRequest
 ```
 
 Constructs NotifyMigrationTaskStateRequest's fields from required parameters
@@ -1370,7 +1370,7 @@ Encode NotifyMigrationTaskStateResult
 
 ``` purescript
 newtype PolicyErrorException
-  = PolicyErrorException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = PolicyErrorException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
@@ -1395,7 +1395,7 @@ Constructs PolicyErrorException from required parameters
 #### `newPolicyErrorException'`
 
 ``` purescript
-newPolicyErrorException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> PolicyErrorException
+newPolicyErrorException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> PolicyErrorException
 ```
 
 Constructs PolicyErrorException's fields from required parameters
@@ -1436,7 +1436,7 @@ Encode ProgressUpdateStream
 
 ``` purescript
 newtype ProgressUpdateStreamSummary
-  = ProgressUpdateStreamSummary { "ProgressUpdateStreamName" :: NullOrUndefined (ProgressUpdateStream) }
+  = ProgressUpdateStreamSummary { "ProgressUpdateStreamName" :: Maybe (ProgressUpdateStream) }
 ```
 
 <p>Summary of the AWS resource used for access control that is implicitly linked to your AWS account.</p>
@@ -1461,7 +1461,7 @@ Constructs ProgressUpdateStreamSummary from required parameters
 #### `newProgressUpdateStreamSummary'`
 
 ``` purescript
-newProgressUpdateStreamSummary' :: ({ "ProgressUpdateStreamName" :: NullOrUndefined (ProgressUpdateStream) } -> { "ProgressUpdateStreamName" :: NullOrUndefined (ProgressUpdateStream) }) -> ProgressUpdateStreamSummary
+newProgressUpdateStreamSummary' :: ({ "ProgressUpdateStreamName" :: Maybe (ProgressUpdateStream) } -> { "ProgressUpdateStreamName" :: Maybe (ProgressUpdateStream) }) -> ProgressUpdateStreamSummary
 ```
 
 Constructs ProgressUpdateStreamSummary's fields from required parameters
@@ -1486,7 +1486,7 @@ Encode ProgressUpdateStreamSummaryList
 
 ``` purescript
 newtype PutResourceAttributesRequest
-  = PutResourceAttributesRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ResourceAttributeList" :: ResourceAttributeList, "DryRun" :: NullOrUndefined (DryRun) }
+  = PutResourceAttributesRequest { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ResourceAttributeList" :: ResourceAttributeList, "DryRun" :: Maybe (DryRun) }
 ```
 
 ##### Instances
@@ -1509,7 +1509,7 @@ Constructs PutResourceAttributesRequest from required parameters
 #### `newPutResourceAttributesRequest'`
 
 ``` purescript
-newPutResourceAttributesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ResourceAttributeList -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ResourceAttributeList" :: ResourceAttributeList, "DryRun" :: NullOrUndefined (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ResourceAttributeList" :: ResourceAttributeList, "DryRun" :: NullOrUndefined (DryRun) }) -> PutResourceAttributesRequest
+newPutResourceAttributesRequest' :: MigrationTaskName -> ProgressUpdateStream -> ResourceAttributeList -> ({ "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ResourceAttributeList" :: ResourceAttributeList, "DryRun" :: Maybe (DryRun) } -> { "ProgressUpdateStream" :: ProgressUpdateStream, "MigrationTaskName" :: MigrationTaskName, "ResourceAttributeList" :: ResourceAttributeList, "DryRun" :: Maybe (DryRun) }) -> PutResourceAttributesRequest
 ```
 
 Constructs PutResourceAttributesRequest's fields from required parameters
@@ -1632,7 +1632,7 @@ Encode ResourceName
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ResourceNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised when the request references a resource (ADS configuration, update stream, migration task, etc.) that does not exist in ADS (Application Discovery Service) or in Migration Hub's repository.</p>
@@ -1657,7 +1657,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -1666,7 +1666,7 @@ Constructs ResourceNotFoundException's fields from required parameters
 
 ``` purescript
 newtype ServiceUnavailableException
-  = ServiceUnavailableException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ServiceUnavailableException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
@@ -1691,7 +1691,7 @@ Constructs ServiceUnavailableException from required parameters
 #### `newServiceUnavailableException'`
 
 ``` purescript
-newServiceUnavailableException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ServiceUnavailableException
+newServiceUnavailableException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ServiceUnavailableException
 ```
 
 Constructs ServiceUnavailableException's fields from required parameters
@@ -1732,7 +1732,7 @@ Encode StatusDetail
 
 ``` purescript
 newtype Task
-  = Task { "Status" :: Status, "StatusDetail" :: NullOrUndefined (StatusDetail), "ProgressPercent" :: NullOrUndefined (ProgressPercent) }
+  = Task { "Status" :: Status, "StatusDetail" :: Maybe (StatusDetail), "ProgressPercent" :: Maybe (ProgressPercent) }
 ```
 
 <p>Task object encapsulating task information.</p>
@@ -1757,7 +1757,7 @@ Constructs Task from required parameters
 #### `newTask'`
 
 ``` purescript
-newTask' :: Status -> ({ "Status" :: Status, "StatusDetail" :: NullOrUndefined (StatusDetail), "ProgressPercent" :: NullOrUndefined (ProgressPercent) } -> { "Status" :: Status, "StatusDetail" :: NullOrUndefined (StatusDetail), "ProgressPercent" :: NullOrUndefined (ProgressPercent) }) -> Task
+newTask' :: Status -> ({ "Status" :: Status, "StatusDetail" :: Maybe (StatusDetail), "ProgressPercent" :: Maybe (ProgressPercent) } -> { "Status" :: Status, "StatusDetail" :: Maybe (StatusDetail), "ProgressPercent" :: Maybe (ProgressPercent) }) -> Task
 ```
 
 Constructs Task's fields from required parameters
@@ -1782,7 +1782,7 @@ Encode Token
 
 ``` purescript
 newtype UnauthorizedOperation
-  = UnauthorizedOperation { "Message" :: NullOrUndefined (ErrorMessage) }
+  = UnauthorizedOperation { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to "true".</p>
@@ -1807,7 +1807,7 @@ Constructs UnauthorizedOperation from required parameters
 #### `newUnauthorizedOperation'`
 
 ``` purescript
-newUnauthorizedOperation' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> UnauthorizedOperation
+newUnauthorizedOperation' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> UnauthorizedOperation
 ```
 
 Constructs UnauthorizedOperation's fields from required parameters
